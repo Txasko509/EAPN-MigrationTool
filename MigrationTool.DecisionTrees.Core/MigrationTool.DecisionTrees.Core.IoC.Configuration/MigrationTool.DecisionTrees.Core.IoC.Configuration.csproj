@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MigrationTool.DecisionTrees.Core.API.DataContracts\MigrationTool.DecisionTrees.Core.API.DataContracts.csproj" />
+    <ProjectReference Include="..\MigrationTool.DecisionTrees.Core.Repositories\MigrationTool.DecisionTrees.Core.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>

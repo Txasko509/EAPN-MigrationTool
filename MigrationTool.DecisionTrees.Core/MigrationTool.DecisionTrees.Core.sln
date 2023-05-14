@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.API", "1.API", "{191B5312-F484-43E6-8DFE-78DF9ECE713F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Common", "01.Common", "{CAB9227F-C641-44C7-804E-D2C2ECEDB11B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Repositories", "2.Repositories", "{CD09DB9E-8AFF-4D5A-8B17-D5B4920DAAC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{872F0BD6-42DB-44FF-A79A-EB18B4BCDA13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.Repositories.Model", "MigrationTool.DecisionTrees.Core.Repositories.Model\MigrationTool.DecisionTrees.Core.Repositories.Model.csproj", "{1FF2A2DC-32D5-4813-AEAE-1545B5DD1750}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.Repositories.Contracts", "MigrationTool.DecisionTrees.Core.Repositories.Contracts\MigrationTool.DecisionTrees.Core.Repositories.Contracts.csproj", "{B675AAD5-22D6-4FE9-B0E2-6F55A3214EC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.Repositories", "MigrationTool.DecisionTrees.Core.Repositories\MigrationTool.DecisionTrees.Core.Repositories.csproj", "{83A08DD3-2DE8-4AE9-83C9-53ADC172753E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.API", "MigrationTool.DecisionTrees.Core.API\MigrationTool.DecisionTrees.Core.API.csproj", "{11AF13A1-B1E0-4A84-B9A8-E59B124BA12C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.API.Common", "MigrationTool.DecisionTrees.Core.API.Common\MigrationTool.DecisionTrees.Core.API.Common.csproj", "{12A51210-55F2-43BB-A232-B3556DF0D2B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.API.DataContracts", "MigrationTool.DecisionTrees.Core.API.DataContracts\MigrationTool.DecisionTrees.Core.API.DataContracts.csproj", "{2FFDD55E-1B82-45E3-B7E9-6AE447748B51}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Core.IoC.Configuration", "MigrationTool.DecisionTrees.Core.IoC.Configuration\MigrationTool.DecisionTrees.Core.IoC.Configuration.csproj", "{AC367254-1044-44B8-9F83-AB0D0E7C0CDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FF2A2DC-32D5-4813-AEAE-1545B5DD1750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FF2A2DC-32D5-4813-AEAE-1545B5DD1750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FF2A2DC-32D5-4813-AEAE-1545B5DD1750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FF2A2DC-32D5-4813-AEAE-1545B5DD1750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B675AAD5-22D6-4FE9-B0E2-6F55A3214EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B675AAD5-22D6-4FE9-B0E2-6F55A3214EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B675AAD5-22D6-4FE9-B0E2-6F55A3214EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B675AAD5-22D6-4FE9-B0E2-6F55A3214EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A08DD3-2DE8-4AE9-83C9-53ADC172753E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A08DD3-2DE8-4AE9-83C9-53ADC172753E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A08DD3-2DE8-4AE9-83C9-53ADC172753E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A08DD3-2DE8-4AE9-83C9-53ADC172753E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11AF13A1-B1E0-4A84-B9A8-E59B124BA12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11AF13A1-B1E0-4A84-B9A8-E59B124BA12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11AF13A1-B1E0-4A84-B9A8-E59B124BA12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11AF13A1-B1E0-4A84-B9A8-E59B124BA12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A51210-55F2-43BB-A232-B3556DF0D2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A51210-55F2-43BB-A232-B3556DF0D2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A51210-55F2-43BB-A232-B3556DF0D2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A51210-55F2-43BB-A232-B3556DF0D2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFDD55E-1B82-45E3-B7E9-6AE447748B51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FFDD55E-1B82-45E3-B7E9-6AE447748B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFDD55E-1B82-45E3-B7E9-6AE447748B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FFDD55E-1B82-45E3-B7E9-6AE447748B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC367254-1044-44B8-9F83-AB0D0E7C0CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC367254-1044-44B8-9F83-AB0D0E7C0CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC367254-1044-44B8-9F83-AB0D0E7C0CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC367254-1044-44B8-9F83-AB0D0E7C0CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FF2A2DC-32D5-4813-AEAE-1545B5DD1750} = {CD09DB9E-8AFF-4D5A-8B17-D5B4920DAAC6}
+		{B675AAD5-22D6-4FE9-B0E2-6F55A3214EC5} = {CD09DB9E-8AFF-4D5A-8B17-D5B4920DAAC6}
+		{83A08DD3-2DE8-4AE9-83C9-53ADC172753E} = {CD09DB9E-8AFF-4D5A-8B17-D5B4920DAAC6}
+		{11AF13A1-B1E0-4A84-B9A8-E59B124BA12C} = {191B5312-F484-43E6-8DFE-78DF9ECE713F}
+		{12A51210-55F2-43BB-A232-B3556DF0D2B0} = {191B5312-F484-43E6-8DFE-78DF9ECE713F}
+		{2FFDD55E-1B82-45E3-B7E9-6AE447748B51} = {191B5312-F484-43E6-8DFE-78DF9ECE713F}
+		{AC367254-1044-44B8-9F83-AB0D0E7C0CDC} = {CAB9227F-C641-44C7-804E-D2C2ECEDB11B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D88CACA8-D1F7-4512-ABB9-F5A9458CBEAE}
+	EndGlobalSection
+EndGlobal
