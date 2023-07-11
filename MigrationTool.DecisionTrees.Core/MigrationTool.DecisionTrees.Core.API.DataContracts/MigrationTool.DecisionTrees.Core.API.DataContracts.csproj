@@ -8,4 +8,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.IQueryable.Extensions" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MigrationTool.DecisionTrees.Core.Repositories.Context;
 
@@ -10,9 +11,11 @@ using MigrationTool.DecisionTrees.Core.Repositories.Context;
 namespace MigrationTool.DecisionTrees.Core.API.Migrations
 {
     [DbContext(typeof(AdminDbContext))]
-    partial class AdminDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230630164455_addDateToDecisionTreeAndOrderToItem")]
+    partial class addDateToDecisionTreeAndOrderToItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,9 +36,6 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                     b.Property<int>("ItemId")
                         .HasColumnType("int")
                         .HasColumnName("ItemId");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -92,7 +92,7 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasColumnType("nvarchar(2000)")
                         .HasColumnName("Text");
 
                     b.HasKey("ItemId");

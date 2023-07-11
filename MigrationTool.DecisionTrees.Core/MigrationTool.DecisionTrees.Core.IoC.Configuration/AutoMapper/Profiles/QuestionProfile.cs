@@ -13,6 +13,12 @@ namespace MigrationTool.DecisionTrees.Core.IoC.Configuration.AutoMapper.Profiles
                 .ForMember(dest =>
                dest.Choices,
                opt => opt.MapFrom(src => src.Choices));
+
+            // Mapping SaveQuestion properties
+            CreateMap<DC.SaveQuestion, S.Question>()
+                 .ForMember(dest =>
+               dest.Choices,
+               opt => opt.MapFrom(src => src.Choices));
         }
     }
 }

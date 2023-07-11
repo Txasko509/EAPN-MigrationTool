@@ -11,8 +11,13 @@ namespace MigrationTool.DecisionTrees.Core.Repositories.Model
         [Column("DecisionTreeId")]
         public int DecisionTreeId { get; set; }
 
-        [Column("Description", TypeName = "nvarchar(500)")]
-        public string? Description { get; set; }
+        [Required]
+        [Column("Name", TypeName = "nvarchar(150)")]
+        public string? Name { get; set; }
+
+        [Required]
+        [Column("Date")]
+        public DateTime Date { get; set; }
 
         [ForeignKey("DecisionTreeId")]
         public List<Item>? Items { get; set; }

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.IQueryable.Extensions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MigrationTool.DecisionTrees.Core.Repositories.Model\MigrationTool.DecisionTrees.Core.Repositories.Model.csproj" />
   </ItemGroup>
 

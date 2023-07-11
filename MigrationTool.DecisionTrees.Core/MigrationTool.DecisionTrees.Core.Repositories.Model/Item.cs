@@ -12,14 +12,17 @@ namespace MigrationTool.DecisionTrees.Core.Repositories.Model
         public int ItemId { get; set; }
 
         [Required]
-        [Column("Text", TypeName = "nvarchar(500)")]
+        public int Order { get; set; }
+
+        [Required]
+        [Column("Text")]
         public string? Text { get; set; }
 
-        [Column("Subtext", TypeName = "nvarchar(1000)")]
-        public string? Subtext { get; set; }
+        [Column("SubText", TypeName = "nvarchar(2000)")]
+        public string? SubText { get; set; }
 
         [Required]
         [Column("DecisionTreeId")]
-        public int DecisionTreeId { get; set; }
+        public int DecisionTreeId { get; set; }        
     }
 }

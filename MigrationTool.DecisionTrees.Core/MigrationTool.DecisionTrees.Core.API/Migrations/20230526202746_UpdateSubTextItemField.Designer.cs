@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MigrationTool.DecisionTrees.Core.Repositories.Context;
 
@@ -10,9 +11,11 @@ using MigrationTool.DecisionTrees.Core.Repositories.Context;
 namespace MigrationTool.DecisionTrees.Core.API.Migrations
 {
     [DbContext(typeof(AdminDbContext))]
-    partial class AdminDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230526202746_UpdateSubTextItemField")]
+    partial class UpdateSubTextItemField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,12 +33,9 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("GotoItemId");
 
-                    b.Property<int>("ItemId")
+                    b.Property<int?>("ItemId")
                         .HasColumnType("int")
                         .HasColumnName("ItemId");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -43,8 +43,6 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                         .HasColumnName("Text");
 
                     b.HasKey("ChoiceId");
-
-                    b.HasIndex("GotoItemId");
 
                     b.HasIndex("ItemId");
 
@@ -58,14 +56,9 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("DecisionTreeId");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("Date");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(150)")
-                        .HasColumnName("Name");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("Description");
 
                     b.HasKey("DecisionTreeId");
 
@@ -83,16 +76,13 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                         .HasColumnType("int")
                         .HasColumnName("DecisionTreeId");
 
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SubText")
+                    b.Property<string>("Subtext")
                         .HasColumnType("nvarchar(2000)")
-                        .HasColumnName("SubText");
+                        .HasColumnName("Subtext");
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("longtext")
+                        .HasColumnType("nvarchar(750)")
                         .HasColumnName("Text");
 
                     b.HasKey("ItemId");
@@ -109,11 +99,11 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                     b.HasBaseType("MigrationTool.DecisionTrees.Core.Repositories.Model.Item");
 
                     b.Property<string>("Info")
-                        .HasColumnType("nvarchar(150)")
+                        .HasColumnType("nvarchar(1000)")
                         .HasColumnName("Info");
 
                     b.Property<string>("TextLink")
-                        .HasColumnType("nvarchar(200)")
+                        .HasColumnType("nvarchar(500)")
                         .HasColumnName("TextLink");
 
                     b.ToTable("Answer", (string)null);
@@ -128,17 +118,9 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
 
             modelBuilder.Entity("MigrationTool.DecisionTrees.Core.Repositories.Model.Choice", b =>
                 {
-                    b.HasOne("MigrationTool.DecisionTrees.Core.Repositories.Model.Item", "GotoItem")
-                        .WithMany()
-                        .HasForeignKey("GotoItemId");
-
                     b.HasOne("MigrationTool.DecisionTrees.Core.Repositories.Model.Question", null)
                         .WithMany("Choices")
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("GotoItem");
+                        .HasForeignKey("ItemId");
                 });
 
             modelBuilder.Entity("MigrationTool.DecisionTrees.Core.Repositories.Model.Item", b =>

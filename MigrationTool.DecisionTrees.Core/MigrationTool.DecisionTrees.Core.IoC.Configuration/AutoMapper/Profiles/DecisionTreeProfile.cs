@@ -8,14 +8,39 @@ namespace MigrationTool.DecisionTrees.Core.IoC.Configuration.AutoMapper.Profiles
     {
         public DecisionTreeProfile()
         {
-            CreateMap<S.DecisionTree, DC.DecisionTreeDetail>()
+            // Mapping DecisionTreeList properties
+            CreateMap<S.DecisionTree, DC.DecisionTreeList>()
                .ForMember(dest =>
                dest.Id,
                opt => opt.MapFrom(src => src.DecisionTreeId))
                 .ForMember(dest =>
-               dest.Description,
-               opt => opt.MapFrom(src => src.Description))
+               dest.Date,
+               opt => opt.MapFrom(src => src.Date))
                 .ForMember(dest =>
+               dest.Name,
+               opt => opt.MapFrom(src => src.Name));
+
+            // Mapping DecisionTreeDetail properties
+            CreateMap<S.DecisionTree, DC.DecisionTreeDetail>()
+               .ForMember(dest =>
+               dest.Id,
+               opt => opt.MapFrom(src => src.DecisionTreeId))
+               .ForMember(dest =>
+               dest.Date,
+               opt => opt.MapFrom(src => src.Date))
+                .ForMember(dest =>
+               dest.Name,
+               opt => opt.MapFrom(src => src.Name))
+                .ForMember(dest =>
+               dest.Items,
+               opt => opt.MapFrom(src => src.Items));
+
+            // Mapping SaveDecisionTree properties
+            CreateMap<DC.SaveDecisionTree, S.DecisionTree>()
+                 .ForMember(dest =>
+               dest.Name,
+               opt => opt.MapFrom(src => src.Name))
+                 .ForMember(dest =>
                dest.Items,
                opt => opt.MapFrom(src => src.Items));
         }

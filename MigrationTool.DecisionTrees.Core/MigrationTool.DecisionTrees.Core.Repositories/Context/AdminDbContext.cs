@@ -21,5 +21,11 @@ namespace MigrationTool.DecisionTrees.Core.Repositories.Context
 
         // DecisionTree
         public DbSet<DecisionTree> DecisionTrees { get; set; }
+
+        // Item
+        public DbSet<Item> Items { get; set; }
+
+        // Choices
+        public DbSet<Choice> Choices { get; set; }
     }
 }

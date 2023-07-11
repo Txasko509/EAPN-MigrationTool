@@ -5,10 +5,10 @@ namespace MigrationTool.DecisionTrees.Core.Repositories.Model
     [Table("Answer")]
     public class Answer : Item
     {
-        [Column("TextLink", TypeName = "nvarchar(500)")]
+        [Column("TextLink", TypeName = "nvarchar(200)")]
         public string? TextLink { get; set; }
 
-        [Column("Info", TypeName = "nvarchar(1000)")]
+        [Column("Info", TypeName = "nvarchar(150)")]
         public string? Info { get; set; }
     }
 }

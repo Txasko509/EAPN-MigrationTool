@@ -12,13 +12,20 @@ namespace MigrationTool.DecisionTrees.Core.Repositories.Model
         public int ChoiceId { get; set; }
 
         [Required]
+        public int Order { get; set; }
+
+        [Required]
         [Column("Text", TypeName = "nvarchar(150)")]
         public string? Text { get; set; }
 
         [Column("GotoItemId")]
+        [ForeignKey("GotoItem")]
         public int? GotoItemId { get; set; }
 
+        public Item? GotoItem { get; set; }
+
+        [Required]
         [Column("ItemId")]
-        public int? ItemId { get; set; }
+        public int ItemId { get; set; }
     }
 }
