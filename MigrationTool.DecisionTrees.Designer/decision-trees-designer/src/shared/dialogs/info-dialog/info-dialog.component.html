@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>
+  {{title}}
+</h1>
+
+<div mat-dialog-content>
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="10px">
+    <mat-icon>info</mat-icon>
+    <div>{{message}}</div>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onAccept()">Aceptar</button>
+</div>

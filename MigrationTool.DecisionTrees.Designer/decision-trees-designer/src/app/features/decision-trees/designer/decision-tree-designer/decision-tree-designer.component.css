@@ -1,0 +1,20 @@
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+      Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.mat-button-toggle-group {
+  height: 32px;
+  align-items: center;
+}
+
+.mat-button-toggle-checked.select {
+  background-color: #7c1434;
+  color: white;
+}
+
+.mat-mdc-form-field-hint {
+  color: grey !important;
+}
+/*# sourceMappingURL=decision-tree-designer.component.css.map */

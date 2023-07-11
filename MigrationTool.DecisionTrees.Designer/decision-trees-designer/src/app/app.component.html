@@ -1,0 +1,10 @@
+<div class="container">
+  <app-header></app-header>
+  <router-outlet>
+    <div class="spinner" *ngIf="showSpinner">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </router-outlet>
+  <span class="fill-remaining-space"></span>
+    <app-footer></app-footer>
+</div>

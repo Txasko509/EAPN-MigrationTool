@@ -1,0 +1,74 @@
+<mat-progress-bar *ngIf="showMatProgress" mode="indeterminate"></mat-progress-bar>
+<div mat-dialog-title style="text-align: center">
+    <span class="dialog-title">{{ 'DECISION-TREES.CREATE.LABEL-TITLE-1' | translate }}</span>
+    <span class="dialog-title-enfasis"> {{ 'DECISION-TREES.CREATE.LABEL-TITLE-2' | translate }}</span>
+</div>
+<mat-dialog-content>
+    <div fxLayout="column" fxLayout.gt-md="row" fxFlex="" fxFill="" fxLayoutGap="10px">
+        <mat-drawer-container class="sidenav-container" fxFlex="" hasBackdrop="false" autosize="true" style="height: 750px">
+            <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+                <!-- Designer -->
+                <mat-card>
+                    <mat-card-header>
+                        <mat-icon color="primary" mat-card-avatar>lan</mat-icon>
+                        <mat-card-title>
+                            <span>{{ 'DECISION-TREES.CREATE.LABEL-DECISION-TREE-DESIGNER-TITLE' | translate }}</span>
+                        </mat-card-title>
+                        <mat-card-subtitle>{{ 'DECISION-TREES.CREATE.LABEL-DECISION-TREE-DESIGNER-SUBTITLE' | translate
+                            }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div fxLayout="column" fxFlex="" fxLayoutGap="10px">
+                            <form [formGroup]="createDecisionTreeForm" fxFlex="">
+                                <div fxLayout="column" fxFlex="" fxLayoutGap="10px">
+                                    <!-- Name -->
+                                    <mat-form-field fxFlex="" fxFill="">
+                                        <mat-label> {{ 'DECISION-TREES.CREATE.LABEL-NAME' | translate
+                                            }}</mat-label>
+                                        <input formControlName="name" matInput
+                                            placeholder="{{ 'DECISION-TREES.CREATE.LABEL-NAME' | translate }}">
+                                        <mat-error *ngIf="createDecisionTreeForm.get('name')?.hasError('required')">
+                                            {{ 'DECISION-TREES.CREATE.ERROR-NAME-REQUIRED' | translate }}
+                                        </mat-error>
+                                        <mat-error *ngIf="createDecisionTreeForm.get('name')?.hasError('maxlength')">
+                                            {{ 'DECISION-TREES.CREATE.ERROR-NAME-MAX-LENGTH' | translate }}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </form>
+                            <app-decision-tree-designer #designer [items]="items"></app-decision-tree-designer>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-drawer>
+            <div fxLayout="column" fxFlex="" fxLayoutGap="10px">
+                <!-- Previewer -->
+                <mat-card fxFlex="" fxFill="">
+                    <mat-card-header>
+                        <button (click)="drawer.toggle()" mat-icon-button>
+                            <mat-icon>{{drawer.opened ? 'arrow_back_ios' :
+                                'arrow_forward_ios'}}</mat-icon>
+                        </button>
+                        <!-- This fills the remaining space of the current row -->
+                        <span class="fill-remaining-space"></span>
+
+                        <mat-icon color="primary" mat-card-avatar>preview</mat-icon>
+                        <mat-card-title>{{ 'DECISION-TREES.CREATE.LABEL-DECISION-TREE-PREVIEWER-TITLE' | translate
+                            }}</mat-card-title>
+                        <mat-card-subtitle>{{ 'DECISION-TREES.CREATE.LABEL-DECISION-TREE-PREVIEWER-SUBTITLE' | translate
+                            }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <app-decision-tree-previewer [items]="items"></app-decision-tree-previewer>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </mat-drawer-container>
+    </div>
+</mat-dialog-content>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onCreateClick()" [disabled]="this.createDecisionTreeForm.invalid || !designer.IsSelectedItemValid">{{
+        'DECISION-TREES.CREATE.BTN-CREATE' |
+        translate }}</button>
+    <button mat-button [mat-dialog-close]="null">{{ 'DECISION-TREES.CREATE.BTN-CANCEL' | translate }}</button>
+</div>

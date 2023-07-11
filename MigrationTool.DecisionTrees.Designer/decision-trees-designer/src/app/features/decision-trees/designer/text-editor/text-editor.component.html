@@ -1,0 +1,25 @@
+<div mat-dialog-title style="text-align: center">
+    <span class="dialog-title">{{ 'DECISION-TREES.DESIGNER.LABEL-TEXT-EDITOR-TITLE-1' | translate }}</span>
+    <span class="dialog-title-enfasis"> {{ 'DECISION-TREES.DESIGNER.LABEL-TEXT-EDITOR-TITLE-2' | translate }}</span>
+</div>
+<mat-dialog-content>
+    <div fxLayout="column" fxFlex="" fxFill="" fxLayoutGap="10px">
+        <form #editorFrom="ngForm" [formGroup]="textEditorForm">
+            <editor #editor formControlName="editor" [apiKey]="tinyMceApiKey" (onInit)="handleEditorInit($event)"
+                [init]="tinyMceConfig"></editor>
+            <mat-error
+                *ngIf="textEditorForm.controls['editor'].touched &&  textEditorForm.get('editor')?.hasError('required')">
+                {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-EDITOR-CONTENT-REQUIRED' | translate }}
+            </mat-error>
+            <mat-error *ngIf="textEditorForm.get('editor')?.hasError('maxlength')">
+                {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-EDITOR-CONTENT-MAX-LENGTH' | translate }}
+            </mat-error>
+        </form>
+    </div>
+</mat-dialog-content>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onAcceptClick()" [disabled]="this.textEditorForm.invalid">{{
+        'DECISION-TREES.DESIGNER.BTN-ACCEPT' |
+        translate }}</button>
+    <button mat-button [mat-dialog-close]="null">{{ 'DECISION-TREES.DESIGNER.BTN-CANCEL' | translate }}</button>
+</div>

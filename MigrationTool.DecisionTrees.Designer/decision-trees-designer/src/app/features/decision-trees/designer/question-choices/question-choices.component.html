@@ -1,0 +1,19 @@
+<mat-card fxFlex="" fxFill="">
+    <mat-card-header>
+        <mat-icon color="primary" mat-card-avatar>list</mat-icon>
+        <mat-card-title>{{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION-CHOICES-TITLE' | translate
+            }}</mat-card-title>
+        <mat-card-subtitle>{{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION-CHOICES-SUBTITLE' | translate
+            }}</mat-card-subtitle>
+        <button [disabled]="question.choices && question.choices.length >= 4" (click)="onAddChoiceClick()" color="primary" matSuffix mat-icon-button aria-label="Clear"
+            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-CREATE-CHOICE' | translate }}">
+            <mat-icon>add</mat-icon>
+        </button>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill="" fxLayoutGap="10px">
+            <app-choice (remove)="onRemoveChoiceClick($event)" (gotoItemSelected)="onGotoItemSelected($event)" *ngFor="let choice of question.choices" fxFlex="" fxFill=""
+                [choice]="choice" [itemsToGo]="ItemsForChoices"></app-choice>
+        </div>
+    </mat-card-content>
+</mat-card>

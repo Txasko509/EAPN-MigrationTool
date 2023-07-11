@@ -1,0 +1,35 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill="" fxLayoutGap="20px">
+    <div class="level" *ngFor="let level of levels" fxLayout="row" fxLayoutAlign="center center" fxFlex="" fxFill="">
+        <span [id]="node.id" *ngFor="let node of level.nodes" class="item" [ngSwitch]="node.type" [tooltip]="''"
+            [tooltipTemplate]="popoverContent" [theme]="tooltipTheme.CUSTOM" [position]="tooltipPosition.DYNAMIC">
+            <mat-icon *ngSwitchCase="itemType.Question">
+                quiz</mat-icon>
+            <mat-icon *ngSwitchCase="itemType.Answer">
+                task</mat-icon>
+            <!-- Tooltip Template -->
+            <ng-template #popoverContent>
+                <div [ngSwitch]="node.type">
+                    <div *ngSwitchCase="itemType.Question">                        
+                        <div fxLayout="column" fxFlex="" fxLayoutGap="10px">
+                            <strong class="tooltip-title">{{ 'DECISION-TREES.PREVIEWER.LABEL-QUESTION' | translate
+                            }}</strong>
+                            <span>{{node.text}}</span>
+                        </div>
+                    </div>
+                    <div *ngSwitchCase="itemType.Answer">
+                        <div fxLayout="column" fxFlex="" fxLayoutGap="10px">
+                            <strong class="tooltip-title">{{ 'DECISION-TREES.PREVIEWER.LABEL-ANSWER' | translate
+                            }}</strong>
+                            <span><span [innerHTML]="node.text"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </span>
+    </div>
+    <!-- No items info-->
+    <div *ngIf="items?.length === 0" fxLayout="row" fxLayoutAlign="center center" fxFlex="" fxFill="">
+        <span class="small-text">{{ 'DECISION-TREES.PREVIEWER.TEXT-INFO-NO-ITEMS' | translate
+            }}</span>
+    </div>
+</div>

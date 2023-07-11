@@ -1,0 +1,175 @@
+/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '../node_modules/@angular/material/' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$palette-primary: (
+  50 : #efe3e7,
+  100 : #d8b9c2,
+  200 : #be8a9a,
+  300 : #a35b71,
+  400 : #903752,
+  500 : #7c1434,
+  600 : #74122f,
+  700 : #690e27,
+  800 : #5f0b21,
+  900 : #4c0615,
+  A100 : #ff8093,
+  A200 : #ff4d68,
+  A400 : #ff1a3d,
+  A700 : #ff0127,
+  contrast: (
+      50 : #000000,
+      100 : #000000,
+      200 : #000000,
+      300 : #ffffff,
+      400 : #ffffff,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #000000,
+      A200 : #000000,
+      A400 : #ffffff,
+      A700 : #ffffff,
+  )
+);
+
+$palette-accent1: (
+  50 : #eaedf1,
+    100 : #cad1db,
+    200 : #a7b3c4,
+    300 : #8394ac,
+    400 : #697d9a,
+    500 : #4e6688,
+    600 : #475e80,
+    700 : #3d5375,
+    800 : #35496b,
+    900 : #253858,
+    A100 : #9dbfff,
+    A200 : #6a9eff,
+    A400 : #377dff,
+    A700 : #1e6cff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$palette-accent2: (
+  50 : #ffe7e4,
+    100 : #ffc2bd,
+    200 : #ff9a91,
+    300 : #ff7264,
+    400 : #ff5343,
+    500 : #ff3522,
+    600 : #ff301e,
+    700 : #ff2819,
+    800 : #ff2214,
+    900 : #ff160c,
+    A100 : #ffffff,
+    A200 : #fff6f6,
+    A400 : #ffc4c3,
+    A700 : #ffaca9,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$migration-tool-theme: mat.define-light-theme((color: (primary: mat.define-palette($palette-primary, 500),
+        accent: mat.define-palette($palette-accent1, 500),
+        warn: mat.define-palette($palette-accent2, 500),
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($migration-tool-theme);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dialog-title {
+  font-weight: normal;
+  font-size: 16pt;
+}
+
+.dialog-title-enfasis {
+  font-weight: bold;
+  font-size: 16pt;
+  color: map-get($palette-primary, 500) !important;
+}
+
+mat-icon.mat-mdc-card-avatar {
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+
+.leader-line{
+  z-index: 9999 !important;
+}
+
+.tooltip-title{
+  font-size: 14px; 
+  color: map-get($palette-primary, 500) !important;
+}
+
+/* Absolute Center Spinner */
+.spinner {
+    position: fixed;
+    z-index: 9999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  
+  /* Transparent Overlay */
+  .spinner:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }

@@ -1,0 +1,188 @@
+{
+  "HEADER": {
+    "LABEL-USERS": "Usuarios",
+    "LABEL-LOGOUT": "Cerrar sesión",
+    "TEXT-LOGOUT-SUCCESS": "La sesión se ha cerrado correctamente"
+  },
+  "FOOTER": {
+    "TEXT-COPYRIGHT": "Reservados todos los derechos",
+    "TEXT-LEGAL-ADVISE": "Aviso legal",
+    "TEXT-PRIVATE-POLICY": "Política de privacidad"
+  },
+  "SHARED": {
+    "PAGINATOR": {
+      "LABEL-FIRST-PAGE": "Primera página",
+      "LABEL-ITEMS-PER-PAGE": "Registros por página",
+      "LABEL-LAST-PAGE": "Última página",
+      "LABEL-NEXT-PAGE": "Página siguiente",
+      "LABEL-PREVIOUS-PAGE": "Página anterior",
+      "LABEL-PAGE-1": "Página 1 de 1",
+      "LABEL-PAGE": "Página",
+      "LABEL-OF": "de",
+      "LABEL-TOTAL-RECORDS": "Total registros"
+    }
+  },
+  "HOME": {
+    "TITLE": "ESTUDIOS CLÍNICOS CON LOS PRODUCTOS DE LA GAMA INTIMATE SOLUTIONS DE MESOESTETIC",
+    "APP-STUDY1": "APLICACIÓN DE MESOFILLER SENSITIVE PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
+    "APP-STUDY2": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
+    "APP-STUDY3": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA ATROFIA VAGINAL"
+  },
+  "AUTH": {
+    "LOG-IN": {
+      "LABEL-TITLE": "Control de acceso",
+      "LABEL-SUBTITLE": "Introduzca sus credenciales",
+      "LABEL-EMAIL": "Correo electrónico",
+      "PLACE-HOLDER-EMAIL": "Introduzca el correo electrónico",
+      "ERROR-EMAIL-REQUIRED": "Correo electrónico <strong>es obligatorio</strong>",
+      "ERROR-EMAIL-MAX-LENGTH": "El campo Correo electrónico no puede contener más de 100 caracteres",
+      "LABEL-PASSWORD": "Contraseña",
+      "PLACE-HOLDER-PASSWORD": "Introduzca la contraseña",
+      "ERROR-PASSWORD-REQUIRED": "Contraseña <strong>es obligatorio</strong>",
+      "ERROR-PASSWORD-MAX-LENGTH": "El campo Contraseña no puede contener más de 20 caracteres",
+      "ERROR-INVALID-DATA-ACCESS": "Usuario o contraseña no válidos",
+      "TEST-INFO-LOGIN-FIRST-TIME": "Recuerde que si es la primera vez que accede debe verificar el enlace enviado a su cuenta de correo electrónico",
+      "BTN-IDENTIFY": "Identificarse",
+      "LABEL-REMEMBERME": "Recuérdame",
+      "TEXT-FORGOT-PASSWORD": "¿Has olvidado la contraseña?"
+    }
+  },
+  "ADMIN": {
+    "USERS": {
+      "LIST": {
+        "LABEL-USERS": "Usuarios",
+        "BTN-CREATE": "Crear usuario",
+        "LABEL-FULLNAME": "Nombre y apellidos",
+        "LABEL-EMAIL": "Correo electrónico",
+        "LABEL-ROLE": "Rol",
+        "LABEL-ACTIONS": "",
+        "TEXT-TOOLTIP-BTN-EDIT": "Editar usuario",
+        "TEXT-TOOLTIP-BTN-REMOVE": "Eliminar usuario",
+        "TEXT-STUDY-CREATE-SUCCESS": "El estudio se ha creado correctamente",
+        "TEXT-STUDY-CREATE-ERROR": "El estudio no se ha podido crear",
+        "DIALOG-TITLE-REMOVE": "Eliminar estudio",
+        "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar el estudio?",
+        "TEXT-STUDY-DELETE-SUCCESS": "El estudio se ha eliminado correctamente",
+        "TEXT-STUDY-DELETE-ERROR": "No se ha podido eliminar el estudio",
+        "TEXT-STUDY-EDIT-SUCCESS": "El estudio se ha actualizado correctamente",
+        "TEXT-STUDY-EDIT-ERROR": "El estudio no se ha podido actualizar"
+      },
+      "SHARED": {
+        "FILTER": {
+          "LABEL-FILTER": "Filtro",
+          "TEXT-PLACEHOLDER-FILTER": "Introduzca texto para comenzar la búsqueda"
+        }
+      }
+    }
+  },
+  "DECISION-TREES": {
+    "LIST": {
+      "LABEL-DECISION-TREES": "Árboles de decisión",
+      "BTN-CREATE": "Crear árbol de decisión",      
+      "LABEL-IDREF": "ID.Ref",
+      "LABEL-DATE": "Fecha",
+      "LABEL-NAME": "Nombre",
+      "TEXT-TOOLTIP-BTN-EDIT": "Editar árbol de decisión",
+      "TEXT-TOOLTIP-BTN-REMOVE": "Eliminar árbol de decisión",
+      "TEXT-DECISION-TREE-CREATE-SUCCESS": "El árbol de decisión se ha creado correctamente",
+      "TEXT-DECISION-TREE-CREATE-ERROR": "El árbol de decisión no se ha podido crear",
+      "TEXT-DECISION-TREE-EDIT-SUCCESS": "El árbol de decisión se ha actualizado correctamente",
+      "TEXT-DECISION-TREE-EDIT-ERROR": "El árbol de decisión no se ha podido actualizar",
+      "DIALOG-TITLE-REMOVE": "Eliminar árbol de decisión",
+      "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar el árbol de decisión?",
+      "TEXT-DECISION-TREE-REMOVE-SUCCESS": "El árbol de decisión se ha eliminado correctamente",
+      "TEXT-DECISION-TREE-REMOVE-ERROR": "No se ha podido eliminar el árbol de decisión"      
+    },
+    "CREATE": {
+      "LABEL-TITLE-1": "Crear ",
+      "LABEL-TITLE-2": "Árbol de decisión",
+      "LABEL-DECISION-TREE-DESIGNER-TITLE": "Diseñador",
+      "LABEL-DECISION-TREE-DESIGNER-SUBTITLE": "Introduzca las preguntas y opciones de respuesta desde la barra de herramientas",
+      "LABEL-DECISION-TREE-PREVIEWER-TITLE": "Previsualizador",
+      "LABEL-DECISION-TREE-PREVIEWER-SUBTITLE": "Previsualización del diseño",
+      "LABEL-NAME": "Nombre",
+      "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
+      "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 150 caracteres",
+      "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",      
+      "BTN-CANCEL": "Cancelar",
+      "BTN-CREATE": "Crear"
+    },
+    "EDIT": {
+      "LABEL-TITLE-1": "Actualizar ",
+      "LABEL-TITLE-2": "Árbol de decisión",
+      "LABEL-DECISION-TREE-DESIGNER-TITLE": "Diseñador",
+      "LABEL-DECISION-TREE-DESIGNER-SUBTITLE": "Introduzca las preguntas y opciones de respuesta desde la barra de herramientas",
+      "LABEL-DECISION-TREE-PREVIEWER-TITLE": "Previsualizador",
+      "LABEL-DECISION-TREE-PREVIEWER-SUBTITLE": "Previsualización del diseño",
+      "LABEL-NAME": "Nombre",
+      "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
+      "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 150 caracteres",
+      "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",    
+      "LABEL-ID-REF": "ID.Ref",  
+      "LABEL-CREATED-DATE": "Fecha de creación",  
+      "BTN-CANCEL": "Cancelar",
+      "BTN-UPDATE": "Actualizar"
+    },
+    "DESIGNER": {
+      "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",
+      "TEXT-TOOLTIP-BTN-REMOVE-ITEM": "Eliminar item",
+      "TEXT-TOOLTIP-BTN-SELECTED-ITEM": "Seleccione un Item para editarlo",
+      "LABEL-ITEM": "Item",
+      "LABEL-QUESTION": "Pregunta",
+      "LABEL-ANSWER": "Respuesta",
+      "TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE": "Seleccione el tipo de Item",
+      "LABEL-TEXT": "Texto",
+      "ERROR-TEXT-REQUIRED": "El campo Texto es obligatorio",
+      "ERROR-TEXT-MAX-LENGTH": "El campo Texto no puede contener más de 150 caracteres",
+      "LABEL-SUBTEXT": "SubTexto",
+      "ERROR-SUBTEXT-MAX-LENGTH": "El campo Texto no puede contener más de 150 caracteres",
+      "LABEL-QUESTION-CHOICES-TITLE": "Opciones de respuesta",
+      "LABEL-QUESTION-CHOICES-SUBTITLE": "Máximo número de respuestas: 4",
+      "TEXT-TOOLTIP-BTN-CREATE-CHOICE": "Crear nueva opción de respuesta",
+      "TEXT-TOOLTIP-BTN-REMOVE-CHOICE": "Eliminar opción de respuesta",
+      "LABEL-GOTO-ITEM": "Ir a Item",
+      "LABEL-TEXT-LINK": "Enlace",
+      "ERROR-TEXT-LINK-MAX-LENGTH": "El campo Enlace no puede contener más de 200 caracteres",      
+      "LABEL-INFO": "Info",
+      "LABEL-INFO-DESC": "Texto informativo del enlace",
+      "ERROR-INFO-MAX-LENGTH": "El campo Info no puede contener más de 150 caracteres",
+      "TEXT-TOOLTIP-BTN-TEXT-EDITOR": "Abrir editor de texto",
+      "LABEL-TEXT-EDITOR-TITLE-1": "Editor de ",
+      "LABEL-TEXT-EDITOR-TITLE-2": "Texto",
+      "ERROR-TEXT-EDITOR-CONTENT-REQUIRED": "Debe indicar un contenido",
+      "ERROR-TEXT-EDITOR-CONTENT-MAX-LENGTH": "El texto no puede contener más de 2000 caracteres",
+      "BTN-CANCEL": "Cancelar",
+      "BTN-ACCEPT": "Aceptar"
+    },
+    "PREVIEWER": {
+      "TEXT-INFO-NO-ITEMS": "No hay items disponibles",
+      "LABEL-QUESTION": "Pregunta",
+      "LABEL-ANSWER": "Respuesta"
+    },
+    "SHARED": {
+      "FILTER": {
+        "LABEL-FROM-DATE": "Fecha desde",
+        "LABEL-TO-DATE": "Fecha hasta",
+        "ERROR-FROM-DATE-VALID": "La Fecha desde no es válida",
+        "ERROR-TO-DATE-VALID": "La Fecha hasta no es válida",
+        "LABEL-FILTER": "Filtro",
+        "TEXT-PLACEHOLDER-FILTER": "Introduzca texto para comenzar la búsqueda"
+      }
+    } 
+  },
+  "ERROR": {
+    "TITLE": "Error",
+    "MESSAGE": "Oops! Se ha producido un error al procesar su solicitud",
+    "INFO": "Vuelva a intentarlo pasados unos instantes, si el error persiste pongase en contacto con un responsable técnico.",
+    "BTN-RETURN-TO-HOME-PAGE": "Volver a la página principal"
+  },
+  "PAGE-NOT-FOUND": {
+    "TITLE": "Página no encontrada",
+    "MESSAGE": "Es posible que la página que está buscando haya sido eliminada debido a un cambio de nombre o no esté disponible temporalmente.",
+    "BTN-HOME-PAGE": "Página principal"
+  },
+  "PAGE-NOT-AUTHORIZED": {
+    "TITLE": "El acceso a esta página está restringido",
+    "MESSAGE": "Consulte con el administrador de la plataforma si cree que se trata de un error."
+  }
+}

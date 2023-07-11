@@ -1,0 +1,89 @@
+<div class="shredTable">
+    <mat-table #staticdataTable [dataSource]="dataSource" matSort [matSortActive]="sortActive"
+        [matSortDirection]="sortDirection" matSortDisableClear multiTemplateDataRows>
+        <!-- Toggle Button Start -->
+        <ng-container matColumnDef="trigger">
+            <mat-header-cell *matHeaderCellDef fxFlex="70px">
+                <mat-icon>menu</mat-icon>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row; let i = dataIndex;" fxFlex="70px">
+                <span (click)="onToogleElement(expandedElement, row)"
+                    [ngClass]="[expandedElement[row.rowId] ?  'active' : 'inActive']" class="btnToggleExpand"></span>
+            </mat-cell>
+        </ng-container>
+        <!-- Toggle Button End -->
+
+        <ng-container [matColumnDef]="column.id" *ngFor="let column of visibleColumns">
+            <!-- Header cell -->
+            <mat-header-cell [matTooltip]="''" matTooltipClass="multiline-tooltip" *matHeaderCellDef
+                [fxFlex]="column.width + 'px'" mat-sort-header [disabled]="!column?.sortable" [class]="column?.align"
+                [style]="column?.columnStyle ?? ''">{{ column.label }}
+            </mat-header-cell>
+
+            <!-- Body cell -->
+            <mat-cell *matCellDef="let row" [fxFlex]="column.width + 'px'" [class]="column?.align"
+                [style]="column?.cellStyle ?? ''">
+                <span *ngIf="column?.type && column.type === 'date'">{{ row[column.id] | utcToLocalTime | date
+                    :(column?.dateFormat ? column.dateFormat : 'dd/MM/yyyy HH:mm')
+                    }}</span>
+                <span *ngIf="!column?.type || (column.type !== 'date' && column.type !== 'check')">{{ row[column.id]
+                    }}</span>
+                <div *ngIf="column.isAction">
+                    <button mat-button [color]="action.color" (click)="onActionClick(row.id, action)"
+                        *ngFor="let action of column.actions" [matTooltip]="action?.toolTip ?? ''"
+                        [disabled]="isActionDisabled(row, action)">
+                        <mat-icon *ngIf="!action?.hide">{{action.icon}}</mat-icon>
+                    </button>
+                </div>
+                <div *ngIf="column?.type && column.type === 'check'">
+                    <mat-checkbox color="primary" [checked]="row[column.id]"
+                        (change)="row[column.id] = !row[column.id]">
+                    </mat-checkbox>
+                </div>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="hidden">
+            <mat-cell *matCellDef="let row;let i = dataIndex;" class="matCell" fxLayout="column"
+                fxLayoutAlign="center start">
+                <div *ngFor="let hiddenColumn of hiddenColumns" fxLayout="row" class="m8">
+                    <div *ngIf="hiddenColumn?.type && hiddenColumn.type === 'check'">
+                        <mat-checkbox color="primary" [checked]="row[hiddenColumn.id]"
+                            (change)="row[hiddenColumn.id] = !row[hiddenColumn.id]">
+                        </mat-checkbox>&nbsp;
+                    </div>
+                    <span class="enfasis">{{ hiddenColumn.label }}</span>
+                    <span *ngIf="hiddenColumn?.type && hiddenColumn.type === 'date'">:&nbsp;{{ row[hiddenColumn.id] |
+                        utcToLocalTime |
+                        date :(hiddenColumn?.dateFormat ? hiddenColumn.dateFormat : 'dd/MM/yyyy HH:mm') }}</span>
+                    <span
+                        *ngIf="!hiddenColumn?.type || (hiddenColumn.type !== 'date' && hiddenColumn.type !== 'check')">:&nbsp;{{
+                        row[hiddenColumn.id] }}</span>
+                    <div *ngIf="hiddenColumn.isAction">
+                        <button mat-button [color]="action.color" (click)="onActionClick(row.id, action)"
+                            [disabled]="isActionDisabled(row, action)" *ngFor="let action of hiddenColumn.actions"
+                            [matTooltip]="action?.toolTip ?? ''">
+                            <mat-icon *ngIf="!action?.hide">{{action.icon}}</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="visibleColumnsIds" class="matHeaderRow"></mat-header-row>
+
+        <mat-row *matRowDef="let row; let i = dataIndex; columns: visibleColumnsIds"
+            class="matRowVisible visible-row-{{row.rowId}}"></mat-row>
+
+        <!-- Body row definition for hidden columns -->
+        <mat-row *matRowDef="let row; let i = dataIndex; columns: ['hidden'];"
+            [@detailExpand]="expandedElement.length && expandedElement[row.rowId] ? 'expanded' : 'collapsed'"
+            style="overflow: hidden" class="matRowHidden hidden-row-{{row.rowId}} hidColLength-{{hiddenColumns.length}}"
+            [ngClass]="expandedElement[row.rowId] ? 'expanded' : 'collapsed'"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator *ngIf="!hidePaginator || hidePaginator == 'false'" [length]="resultsLength" pageSize="pageSize"
+        [pageSizeOptions]="pageSizeOptions" aria-label="Select page of items" showFirstLastButtons="true">
+    </mat-paginator>
+</div>

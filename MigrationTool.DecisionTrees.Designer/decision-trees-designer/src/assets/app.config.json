@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "apiEndpoint": "http://localhost:5000",
+  "issuer": "http://localhost:10000",
+  "requireHttps": false,
+  "tinyMceApiKey": "sgncrvpsprmc5xo5fm9mkkvbmkdlq2ymlopgm1epgwyefreq"
+}
+

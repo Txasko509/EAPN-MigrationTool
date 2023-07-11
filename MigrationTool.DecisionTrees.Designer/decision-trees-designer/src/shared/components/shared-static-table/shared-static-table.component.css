@@ -1,0 +1,66 @@
+.m8 {
+  margin: 8px;
+}
+
+.enfasis {
+  font-weight: 500;
+}
+
+.expanded {
+  height: -webkit-min-content !important;
+  height: -moz-min-content !important;
+  height: min-content !important;
+  visibility: visible !important;
+}
+
+.hidColLength-0 {
+  height: 0px !important;
+  min-height: 0px !important;
+  visibility: hidden !important;
+}
+
+.btnToggleExpand {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.btnToggleExpand.active:before {
+  content: "-";
+  background-color: #d33333;
+}
+.btnToggleExpand:before {
+  top: 9px;
+  left: 4px;
+  height: 14px;
+  width: 14px;
+  display: block;
+  position: absolute;
+  color: white;
+  border: 2px solid white;
+  border-radius: 14px;
+  box-shadow: 0 0 3px #444;
+  box-sizing: content-box;
+  text-align: center;
+  text-indent: 0 !important;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 14px;
+  content: "+";
+  background-color: #31b131;
+}
+
+.mat-mdc-header-cell.center {
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.mat-mdc-cell.center {
+  text-align: center !important;
+  justify-content: center !important;
+}
+
+.multiline-tooltip {
+  white-space: pre-line;
+}
+/*# sourceMappingURL=shared-static-table.component.css.map */

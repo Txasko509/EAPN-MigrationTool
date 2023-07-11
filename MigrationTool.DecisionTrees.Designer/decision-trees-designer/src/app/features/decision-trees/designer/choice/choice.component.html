@@ -1,0 +1,31 @@
+<form [formGroup]="choiceForm" fxFlex="" fxFill="">
+    <div fxLayout="row" fxFlex="" fxLayoutGap="10px">
+        <!-- Text -->
+        <mat-form-field fxFlex="" fxFill="">
+            <mat-label> {{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate
+                }}</mat-label>
+            <input formControlName="text" matInput placeholder="{{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate }}"
+                required>
+            <mat-error *ngIf="choiceForm.get('text')?.hasError('required')">
+                {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-REQUIRED' | translate }}
+            </mat-error>
+            <mat-error *ngIf="choiceForm.get('text')?.hasError('maxlength')">
+                {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-MAX-LENGTH' | translate }}
+            </mat-error>
+        </mat-form-field>
+        <!-- GotoItemId-->
+        <mat-form-field fxFlex="" fxFill="">
+            <mat-label>{{ 'DECISION-TREES.DESIGNER.LABEL-GOTO-ITEM' | translate }}
+            </mat-label>
+            <mat-select formControlName="gotoItem">
+                <mat-option *ngFor="let itemToGo of itemsToGo;let indexOfelement=index;" [value]="itemToGo">
+                    {{itemToGo.order + 1}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button (click)="onRemoveChoiceClick()" color="primary" matSuffix mat-icon-button aria-label="Clear"
+            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-REMOVE-CHOICE' | translate }}">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</form>

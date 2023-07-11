@@ -1,0 +1,36 @@
+<form [formGroup]="filterForm" fxFlex="" fxFill="">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between start"
+        fxFlex="" fxFill="" fxLayoutGap="20px" fxLayoutGap.xs="0px">
+        <!-- Start date -->
+        <mat-form-field fxFlex="20" fxFill="">
+            <input matInput [matDatepicker]="picker1" [max]="filterForm.get('from')?.value"
+                placeholder="{{ 'DECISION-TREES.SHARED.FILTER.LABEL-FROM-DATE' | translate }}" formControlName="from"
+                (focus)="picker1.open()">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-error *ngIf="filterForm.get('from')?.invalid">
+                {{ 'DECISION-TREES.SHARED.FILTER.ERROR-FROM-DATE-VALID' | translate }}
+            </mat-error>
+        </mat-form-field>
+        <!-- End date -->
+        <mat-form-field fxFlex="20" fxFill="">
+            <input matInput [matDatepicker]="picker2" [min]="filterForm.get('to')?.value"
+                placeholder="{{ 'DECISION-TREES.SHARED.FILTER.LABEL-TO-DATE' | translate }}" formControlName="to"
+                (focus)="picker2.open()">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+            <mat-error *ngIf="filterForm.get('to')?.hasError('matDatepickerMin')">
+                {{ 'DECISION-TREES.SHARED.FILTER.ERROR-TO-DATE-VALID' | translate }}
+            </mat-error>
+            <mat-error *ngIf="filterForm.get('to')?.hasError('dateGreaterOrEqualThan')">
+                {{ 'DECISION-TREES.SHARED.FILTER.ERROR-TO-DATE-VALID' | translate }}
+            </mat-error>
+        </mat-form-field>
+        <!-- Search text -->
+        <mat-form-field fxFlex="" fxFill="">
+            <mat-label>{{ 'DECISION-TREES.SHARED.FILTER.LABEL-FILTER' | translate }}</mat-label>
+            <input formControlName="searchText" matInput
+                placeholder="{{ 'DECISION-TREES.SHARED.FILTER.TEXT-PLACEHOLDER-FILTER' | translate }}" #input>
+        </mat-form-field>                   
+    </div>
+</form>  

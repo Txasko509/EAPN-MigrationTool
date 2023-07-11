@@ -1,0 +1,17 @@
+<div fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="center center" fxLayoutGap="100px">
+    <div fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="center center" style="padding-top: 80px">
+        <h1><strong>{{ 'HOME.TITLE' | translate }}</strong></h1> 
+    </div>
+    <div fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="center center" fxLayoutGap="50px">
+        <button mat-stroked-button color="accent" (click)="onStudy1Click()">
+            <mat-icon>new</mat-icon>
+            {{ 'HOME.APP-STUDY1' | translate }}
+        </button>
+        <button mat-stroked-button color="accent" (click)="onStudy2Click()">
+            {{ 'HOME.APP-STUDY2' | translate }}
+        </button>
+        <button mat-stroked-button color="accent" (click)="onStudy3Click()">
+            {{ 'HOME.APP-STUDY3' | translate }}
+        </button>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="tooltip"
+     [ngClass]="['tooltip--'+position, 'tooltip--'+theme]"
+     [class.tooltip--visible]="visible"
+     [style.left]="left + 'px'"
+     [style.top]="top + 'px'">
+    {{tooltip}}
+<ng-container *ngTemplateOutlet="tooltipTemplate">
+    This text is not displayed
+  </ng-container> 
+</div>

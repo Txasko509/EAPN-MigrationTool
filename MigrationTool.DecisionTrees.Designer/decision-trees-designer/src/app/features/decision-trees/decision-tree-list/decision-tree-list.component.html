@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex="">
+    <mat-toolbar class="accent2-100">
+        <span  class="title">{{ 'DECISION-TREES.LIST.LABEL-DECISION-TREES' | translate
+        }}</span>
+    </mat-toolbar>
+    <!-- Content -->
+    <div fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="start start" fxLayoutGap="10px" style="padding: 15px;">
+        <div fxLayout="row" fxLayout.xs="column" fxFlex="" fxFill="">
+            <button (click)="onCreateDecisionTreeClick()" mat-raised-button color="primary">
+                {{ 'DECISION-TREES.LIST.BTN-CREATE' | translate }}
+            </button>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="" fxFill="">
+            <app-decision-trees-filter fxFlex="" fxFill="" [formGroup]="filterFormGroup"
+                (change)="onChangeFilter()"></app-decision-trees-filter>
+        </div>
+        <div fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="start start">
+                <app-shared-static-table fxFlex="" fxFill="" sortActive="date" sortDirection="desc" [dataSource]="dataSource"
+                [columnsdef]="columns" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" [resultsLength]="dataSource.data.length"
+                (actionClick)="onActionClick($event)"></app-shared-static-table>
+        </div> 
+    </div>
+</div>
