@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool.DecisionTrees.Auth.API", "MigrationTool.DecisionTrees.Auth.API\MigrationTool.DecisionTrees.Auth.API.csproj", "{115CF4DC-1B33-4A8A-8FD7-BE10DB97E9DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationTool.DecisionTrees.Auth.Common", "MigrationTool.DecisionTrees.Auth.Common\MigrationTool.DecisionTrees.Auth.Common.csproj", "{B03F6871-8735-4873-8202-2182A5971D68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{115CF4DC-1B33-4A8A-8FD7-BE10DB97E9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{115CF4DC-1B33-4A8A-8FD7-BE10DB97E9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{115CF4DC-1B33-4A8A-8FD7-BE10DB97E9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{115CF4DC-1B33-4A8A-8FD7-BE10DB97E9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B03F6871-8735-4873-8202-2182A5971D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B03F6871-8735-4873-8202-2182A5971D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B03F6871-8735-4873-8202-2182A5971D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B03F6871-8735-4873-8202-2182A5971D68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66C1125E-3505-450F-97D9-18D7ABB0BE39}
+	EndGlobalSection
+EndGlobal
