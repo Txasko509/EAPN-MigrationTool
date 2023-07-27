@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit, Type } from '@angular/core';
+import { Component, Input, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Item } from 'src/core/interfaces/item';
 import { ItemType } from 'src/core/interfaces/item-type';
@@ -9,7 +9,7 @@ import { Question } from 'src/core/interfaces/question';
 import { ItemsChangeNotificationService } from 'src/core/services/items-change-notification.service';
 import { Answer } from 'src/core/interfaces/answer';
 import { Choice } from 'src/core/interfaces/choice';
-import { validateBasis } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-decision-tree-designer',
@@ -97,7 +97,9 @@ export class DecisionTreeDesignerComponent implements OnInit{
       subText: ""
     });
 
-    this.itemsChangeNotificationService.notifyChanges(this.items);
+    if(this.items.length === 0 || this.items.length === 1){
+      this.itemsChangeNotificationService.notifyChanges(this.items);
+    }    
   }
 
   onRemoveItemClick() {
@@ -109,6 +111,18 @@ export class DecisionTreeDesignerComponent implements OnInit{
     if(index > 0){
       this.setSelectedItem(this.items[(index - 1)]);
     }
+
+    // Remove gotoItem references
+    var qItems = Enumerable.asEnumerable<Question>(this.items).Where(i => i.$type === ItemType.Question && 'choices' in i && i.choices !== undefined).ToArray();
+    qItems.forEach(qItem => {
+      if(qItem.choices !== undefined){
+        qItem.choices.forEach(qItem => {
+          if(qItem.gotoItem !== null && qItem.gotoItem?.order === selectedItem.order){
+            qItem.gotoItem = undefined;
+          }
+        });
+      }      
+    });
     
     this.itemsChangeNotificationService.notifyChanges(this.items);
   }
