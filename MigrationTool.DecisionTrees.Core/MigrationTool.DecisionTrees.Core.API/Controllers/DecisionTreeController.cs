@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,6 +14,7 @@ using S = MigrationTool.DecisionTrees.Core.Repositories.Model;
 
 namespace MigrationTool.DecisionTrees.Core.API.Controllers
 {
+    [Authorize]
     [Route("api/decision-trees")]
     [ApiController]
     public class DecisionTreeController : Controller
@@ -59,6 +61,7 @@ namespace MigrationTool.DecisionTrees.Core.API.Controllers
         /// <param name="decisionTreeId">decisionTree identifier</param>
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(DC.DecisionTreeDetail))]
         [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(DC.DecisionTreeDetail))]
         [HttpGet, Route("{decisionTreeId}")]
@@ -117,7 +120,6 @@ namespace MigrationTool.DecisionTrees.Core.API.Controllers
             return await _repository.UpdateAsync(decisionTreeId, _mapper.Map<S.DecisionTree>(value));
         }
         #endregion
-
 
         #region DELETE
         /// <summary>

@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using MigrationTool.DecisionTrees.Core.Api.IoC.Configuration.DI;
+using MigrationTool.DecisionTrees.Core.API.Authorization;
 using MigrationTool.DecisionTrees.Core.API.Common.Settings;
+using MigrationTool.DecisionTrees.Core.API.OpenApi;
 using MigrationTool.DecisionTrees.Core.API.Swagger;
+using OpenIddict.Validation.AspNetCore;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
@@ -60,7 +64,7 @@ namespace MigrationTool.DecisionTrees.Core.API
                     if (_appSettings.Swagger.Enabled)
                     {
                         services.Configure<AppSettings>(Configuration)
-                            .AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>()
+                            .AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGenOptions>()
                             .AddSwaggerGen();
                     }
 
@@ -87,7 +91,49 @@ namespace MigrationTool.DecisionTrees.Core.API
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
                             });
-                    });                    
+                    });
+
+                    var guestPolicy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .RequireClaim("scope", _appSettings.Authentication.OpenIddict.Scope)
+                    .Build();
+
+                    services.AddAuthentication(options =>
+                    {
+                        options.DefaultScheme = OpenIddictValidationAspNetCoreDefaults.AuthenticationScheme;
+                    });
+
+                    // Register the OpenIddict validation components.
+                    services.AddOpenIddict()
+                        .AddValidation(options =>
+                        {
+                            // Note: the validation handler uses OpenID Connect discovery
+                            // to retrieve the address of the introspection endpoint.
+                            options.SetIssuer(_appSettings.Authentication.OpenIddict.Issuer);
+                            options.AddAudiences(_appSettings.Authentication.OpenIddict.Audience);
+
+                            // Configure the validation handler to use introspection and register the client
+                            // credentials used when communicating with the remote introspection endpoint.
+                            options.UseIntrospection()
+                                    .SetClientId(_appSettings.Authentication.OpenIddict.ClientId)
+                                    .SetClientSecret(_appSettings.Authentication.OpenIddict.ClientSecret);
+
+                            // Register the System.Net.Http integration.
+                            options.UseSystemNetHttp();
+
+                            // Register the ASP.NET Core host.
+                            options.UseAspNetCore();
+                        });
+
+                    services.AddScoped<IAuthorizationHandler, RequireScopeHandler>();
+
+                    services.AddAuthorization(options =>
+                    {
+                        options.AddPolicy("RequireDecisionTreesScope", policy =>
+                        {
+                            policy.Requirements.Add(new RequireScope());
+                        });
+                    });
 
                     Log.Debug("Startup::ConfigureServices::ApiVersioning, Swagger and DI settings");
                 }
@@ -116,8 +162,11 @@ namespace MigrationTool.DecisionTrees.Core.API
                         app.UseSwagger();
                         app.UseSwaggerUI(options =>
                         {
-                            options.SwaggerEndpoint("../swagger/v1/swagger.json", "Eapn Migration Tool API V1");
+                            options.SwaggerEndpoint("../swagger/v1/swagger.json", "Eapn Decision Trees API V1");
+                            options.OAuthClientId(_appSettings.Swagger.ClientId);
+                            options.OAuthClientSecret(_appSettings.Swagger.ClientSecret);
                             options.OAuthScopeSeparator(" ");
+                            options.OAuth2RedirectUrl(_appSettings.Swagger.RedirectUri);
                         });
                     }
                 }

@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class AppConfigService {
   public version!: string;
   public apiEndpoint!: string;
+  public issuer!: string;
+  public requireHttps!: boolean;
   public tinyMceApiKey!: string;
 
 	constructor(private http: HttpClient) {}

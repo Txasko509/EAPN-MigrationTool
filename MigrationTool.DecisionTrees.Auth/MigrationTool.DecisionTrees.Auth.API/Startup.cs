@@ -236,7 +236,7 @@ namespace MigrationTool.DecisionTrees.Auth.API
             }
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             Log.Information("Startup::Configure");
             Log.Debug($"Startup::Configure::Environment:{env.EnvironmentName}");
@@ -277,6 +277,9 @@ namespace MigrationTool.DecisionTrees.Auth.API
 
                 app.UseAuthentication();
                 app.UseAuthorization();
+
+                IdentityDataInitializer.SeedRoles(roleManager);
+                IdentityDataInitializer.SeedDefaultUser(userManager);
 
                 app.UseSession();
 

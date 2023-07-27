@@ -18,6 +18,9 @@ import { SharedModule } from 'src/shared/shared.module';
 import { HttpInterceptorService } from 'src/core/interceptors/httpinterceptor-service';
 import { GenericPagesModule } from './features/generic-pages/generic-pages.module';
 import { AppConfigService } from './app.config.service';
+import { AuthAppModule } from './features/auth/auth-app.module';
+import { JwtInterceptor } from 'src/core/interceptors/jwt.interceptor';
+import { AuthModule } from 'src/core/auth/auth.module';
 
 
 // AoT requires an exported function for factories
@@ -46,6 +49,7 @@ export function appConfigInit(appConfigService: AppConfigService) {
     GenericPagesModule,
     SharedModule,
     HomeModule,
+    AuthAppModule,
     DecisionTreesModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
@@ -54,7 +58,8 @@ export function appConfigInit(appConfigService: AppConfigService) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    AuthModule.forRoot()
   ],
   providers: [AppToasterService, SpinnerService, { provide: LOCALE_ID, useValue: 'es-ES' }, 
   {
@@ -67,7 +72,8 @@ export function appConfigInit(appConfigService: AppConfigService) {
     useFactory: appConfigInit,
     multi: true,
     deps: [AppConfigService]
-  }],
+  },
+  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

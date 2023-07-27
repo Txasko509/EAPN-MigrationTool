@@ -6,8 +6,12 @@ namespace MigrationTool.DecisionTrees.Core.API.Common.Settings
     {
         [Required]
         public ApiSettings API { get; set; }
+
         [Required]
         public Swagger Swagger { get; set; }
+
+        [Required]
+        public Authentication Authentication { get; set; }
     }
 
     public class ApiSettings
@@ -42,5 +46,40 @@ namespace MigrationTool.DecisionTrees.Core.API.Common.Settings
     {
         [Required]
         public bool Enabled { get; set; }
+
+        [Required]
+        public string ClientId { get; set; }
+
+        [Required]
+        public string ClientSecret { get; set; }
+
+        [Required]
+        public string RedirectUri { get; set; }
+    }
+
+    public class Authentication
+    {
+        public OpenIddict OpenIddict { get; set; }
+    }
+
+    public class OpenIddict
+    {
+        [Required]
+        public string ClientId { get; set; }
+
+        [Required]
+        public string ClientSecret { get; set; }
+
+        [Required]
+        public string Audience { get; set; }
+
+        [Required]
+        public string Scope { get; set; }
+
+        [Required]
+        public string Issuer { get; set; }
+
+        [Required]
+        public bool RequireHttpsMetadata { get; set; }
     }
 }
