@@ -148,6 +148,11 @@ mat-icon.mat-mdc-card-avatar {
   color: map-get($palette-primary, 500) !important;
 }
 
+app-home{
+  height:100%;
+  position: relative;
+}
+
 /* Absolute Center Spinner */
 .spinner {
     position: fixed;

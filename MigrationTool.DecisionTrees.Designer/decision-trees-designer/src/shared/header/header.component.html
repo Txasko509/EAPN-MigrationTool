@@ -1,9 +1,16 @@
 <div fxLayout="row" fxLayoutAlign="space-between start" fxFlex="" fxFill="">
     <mat-toolbar color="primary" fxFlex="" fxFill="">
-        <mat-toolbar-row>
-            <!-- Nombre app -->
-            <img src="./assets/images/logo.png" alt="EAPN Madrid" width="50px" (click)="onHomeClick()"
+        <mat-toolbar-row fxFlex="">
+            <!-- Logo Eapn -->
+            <img src="./assets/images/eapn_logo2.png" alt="EAPN Madrid" width="65px" (click)="onHomeClick()"
                 style="cursor: pointer;" />   
+
+            <!-- This fills the remaining space of the current row -->
+           <!--  <span class="fill-remaining-space"></span> -->
+
+            <!-- Logo Unir -->
+            <a href="https://www.unir.net/" target="_blank"><img src="./assets/images/logo_unir.png" alt="Unir" width="120px" (click)="onHomeClick()"
+            style="cursor: pointer;" /></a>
         </mat-toolbar-row>
     </mat-toolbar>
 </div>

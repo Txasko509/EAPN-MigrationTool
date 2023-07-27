@@ -9,18 +9,8 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) { }
 
-  onStudy1Click() {   
+  onDecisionTreeCatalogClick() {   
     // Redirect to
-    //this.router.navigateByUrl(`${'studies'}`, { state: {data: StudyType.MesofillerUi} });    
-  }
-
-  onStudy2Click() {
-    // Redirect to
-    //this.router.navigateByUrl(`${'studies'}`, { state: { data: StudyType.MesofillerLaserUi } });
-  }
-
-  onStudy3Click() {
-    // Redirect to
-    //this.router.navigateByUrl(`${'studies'}`, { state: { data: StudyType.MesofillerLaserAv } });
+    this.router.navigateByUrl(`${'decision-trees'}`);    
   }
 }

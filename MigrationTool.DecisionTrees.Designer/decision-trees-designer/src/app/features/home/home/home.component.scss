@@ -1,14 +1,46 @@
+
+.title { font-family: 'Lora', serif; font-size: 60px;}
 .container {
     display: flex;
     flex-direction: column;
     position: absolute;
+	background: url('../../../../assets/images/main_bg.jpg') no-repeat center center;
+	background-attachment: fixed;
+	background-size: cover;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+	opacity: 0.4;
 }
-.fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-        Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
+.text {
+	font-family: "Lora";
+	font-size: 2vw;
+	user-select: none;
+
+	.wrapper {
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 200px;
+		.letter {
+			transition: ease-out 1s;
+			transform: translateY(-250%);
+            color: #4d6585 !important;
+		}
+		.shadow {
+			transform: scale(1, -1);
+			color: #999;
+			transition: ease-in 5s, ease-out 5s;
+		}
+		&:hover {
+			.letter {
+				transform: translateY(-200%);
+                color: #4d6585 !important;
+			}
+			.shadow {
+				opacity: 0;
+				transform: translateY(200%);
+			}
+		}
+	}
 }

@@ -23,10 +23,7 @@
     }
   },
   "HOME": {
-    "TITLE": "ESTUDIOS CLÍNICOS CON LOS PRODUCTOS DE LA GAMA INTIMATE SOLUTIONS DE MESOESTETIC",
-    "APP-STUDY1": "APLICACIÓN DE MESOFILLER SENSITIVE PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
-    "APP-STUDY2": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
-    "APP-STUDY3": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA ATROFIA VAGINAL"
+    "DECISION-TREE-CATALOG": "Catálogo de árboles de decisión"
   },
   "AUTH": {
     "LOG-IN": {
@@ -45,34 +42,6 @@
       "BTN-IDENTIFY": "Identificarse",
       "LABEL-REMEMBERME": "Recuérdame",
       "TEXT-FORGOT-PASSWORD": "¿Has olvidado la contraseña?"
-    }
-  },
-  "ADMIN": {
-    "USERS": {
-      "LIST": {
-        "LABEL-USERS": "Usuarios",
-        "BTN-CREATE": "Crear usuario",
-        "LABEL-FULLNAME": "Nombre y apellidos",
-        "LABEL-EMAIL": "Correo electrónico",
-        "LABEL-ROLE": "Rol",
-        "LABEL-ACTIONS": "",
-        "TEXT-TOOLTIP-BTN-EDIT": "Editar usuario",
-        "TEXT-TOOLTIP-BTN-REMOVE": "Eliminar usuario",
-        "TEXT-STUDY-CREATE-SUCCESS": "El estudio se ha creado correctamente",
-        "TEXT-STUDY-CREATE-ERROR": "El estudio no se ha podido crear",
-        "DIALOG-TITLE-REMOVE": "Eliminar estudio",
-        "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar el estudio?",
-        "TEXT-STUDY-DELETE-SUCCESS": "El estudio se ha eliminado correctamente",
-        "TEXT-STUDY-DELETE-ERROR": "No se ha podido eliminar el estudio",
-        "TEXT-STUDY-EDIT-SUCCESS": "El estudio se ha actualizado correctamente",
-        "TEXT-STUDY-EDIT-ERROR": "El estudio no se ha podido actualizar"
-      },
-      "SHARED": {
-        "FILTER": {
-          "LABEL-FILTER": "Filtro",
-          "TEXT-PLACEHOLDER-FILTER": "Introduzca texto para comenzar la búsqueda"
-        }
-      }
     }
   },
   "DECISION-TREES": {

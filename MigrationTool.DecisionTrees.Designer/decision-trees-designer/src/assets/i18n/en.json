@@ -1,7 +1,8 @@
 {
   "HEADER": {
-    "LABEL-CLOSE-SESSION": "Cerrar sesión",
-    "TEXT-CLOSE-SESSION-SUCCESS": "La sesión se ha cerrado correctamente"
+    "LABEL-USERS": "Usuarios",
+    "LABEL-LOGOUT": "Cerrar sesión",
+    "TEXT-LOGOUT-SUCCESS": "La sesión se ha cerrado correctamente"
   },
   "FOOTER": {
     "TEXT-COPYRIGHT": "Reservados todos los derechos",
@@ -22,121 +23,112 @@
     }
   },
   "HOME": {
-    "TITLE": "ESTUDIOS CLÍNICOS CON LOS PRODUCTOS DE LA GAMA INTIMATE SOLUTIONS DE MESOESTETIC",
-    "APP-STUDY1": "APLICACIÓN DE MESOFILLER SENSITIVE PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
-    "APP-STUDY2": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
-    "APP-STUDY3": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA ATROFIA VAGINAL"
+    "DECISION-TREE-CATALOG": "Catálogo de árboles de decisión"
   },
-  "STUDIES": {
+  "AUTH": {
+    "LOG-IN": {
+      "LABEL-TITLE": "Control de acceso",
+      "LABEL-SUBTITLE": "Introduzca sus credenciales",
+      "LABEL-EMAIL": "Correo electrónico",
+      "PLACE-HOLDER-EMAIL": "Introduzca el correo electrónico",
+      "ERROR-EMAIL-REQUIRED": "Correo electrónico <strong>es obligatorio</strong>",
+      "ERROR-EMAIL-MAX-LENGTH": "El campo Correo electrónico no puede contener más de 100 caracteres",
+      "LABEL-PASSWORD": "Contraseña",
+      "PLACE-HOLDER-PASSWORD": "Introduzca la contraseña",
+      "ERROR-PASSWORD-REQUIRED": "Contraseña <strong>es obligatorio</strong>",
+      "ERROR-PASSWORD-MAX-LENGTH": "El campo Contraseña no puede contener más de 20 caracteres",
+      "ERROR-INVALID-DATA-ACCESS": "Usuario o contraseña no válidos",
+      "TEST-INFO-LOGIN-FIRST-TIME": "Recuerde que si es la primera vez que accede debe verificar el enlace enviado a su cuenta de correo electrónico",
+      "BTN-IDENTIFY": "Identificarse",
+      "LABEL-REMEMBERME": "Recuérdame",
+      "TEXT-FORGOT-PASSWORD": "¿Has olvidado la contraseña?"
+    }
+  },
+  "DECISION-TREES": {
     "LIST": {
-      "LABEL-STUDY-1": "APLICACIÓN DE MESOFILLER SENSITIVE PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
-      "LABEL-STUDY-2": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA SINTOMATOLOGÍA URINARIA",
-      "LABEL-STUDY-3": "APLICACIÓN DE MESOFILLER SENSITIVE COMBINADO CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA ATROFIA VAGINAL",
-      "BTN-CREATE": "Crear paciente",
-      "BTN-PROTOCOL": "Consultar protocolo de estudio",
+      "LABEL-DECISION-TREES": "Árboles de decisión",
+      "BTN-CREATE": "Crear árbol de decisión",      
+      "LABEL-IDREF": "ID.Ref",
       "LABEL-DATE": "Fecha",
-      "LABEL-PATIENT-CODE": "Código paciente",
-      "LABEL-ACTIONS": "",
-      "TEXT-TOOLTIP-BTN-EDIT": "Editar estudio de paciente",
-      "TEXT-TOOLTIP-BTN-REMOVE": "Eliminar estudio de paciente",
-      "TEXT-STUDY-CREATE-SUCCESS": "El estudio se ha creado correctamente",
-      "TEXT-STUDY-CREATE-ERROR": "El estudio no se ha podido crear",
-      "DIALOG-TITLE-REMOVE": "Eliminar estudio",
-      "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar el estudio?",
-      "TEXT-STUDY-DELETE-SUCCESS": "El estudio se ha eliminado correctamente",
-      "TEXT-STUDY-DELETE-ERROR": "No se ha podido eliminar el estudio",
-      "TEXT-STUDY-EDIT-SUCCESS": "El estudio se ha actualizado correctamente",
-      "TEXT-STUDY-EDIT-ERROR": "El estudio no se ha podido actualizar"
+      "LABEL-NAME": "Nombre",
+      "TEXT-TOOLTIP-BTN-EDIT": "Editar árbol de decisión",
+      "TEXT-TOOLTIP-BTN-REMOVE": "Eliminar árbol de decisión",
+      "TEXT-DECISION-TREE-CREATE-SUCCESS": "El árbol de decisión se ha creado correctamente",
+      "TEXT-DECISION-TREE-CREATE-ERROR": "El árbol de decisión no se ha podido crear",
+      "TEXT-DECISION-TREE-EDIT-SUCCESS": "El árbol de decisión se ha actualizado correctamente",
+      "TEXT-DECISION-TREE-EDIT-ERROR": "El árbol de decisión no se ha podido actualizar",
+      "DIALOG-TITLE-REMOVE": "Eliminar árbol de decisión",
+      "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar el árbol de decisión?",
+      "TEXT-DECISION-TREE-REMOVE-SUCCESS": "El árbol de decisión se ha eliminado correctamente",
+      "TEXT-DECISION-TREE-REMOVE-ERROR": "No se ha podido eliminar el árbol de decisión"      
     },
     "CREATE": {
-      "LABEL-TITLE-1-STUDY-1": "Tratamiento de la ",
-      "LABEL-TITLE-2-STUDY-1": "Sintomatología Urinaria",
-      "LABEL-TITLE-1-STUDY-2": "Tratamiento Láser para el tratamiento de la ",
-      "LABEL-TITLE-2-STUDY-2": "Sintomatología Urinaria",
-      "LABEL-TITLE-1-STUDY-3": "Tratamiento Láser para el tratamiento de la ",
-      "LABEL-TITLE-2-STUDY-3": "Atrofia vaginal",
-      "LABEL-CLINICAL-DATA-TITLE": "Identificación y datos clínicos",
-      "TEXT-CLINICAL-DATA-SUBTITLE": "Introducir los datos del paciente",
-      "LABEL-SESSIONS-TITLE": "Visitas",
-      "TEXT-SESSIONS-SUBTITLE": "Gestión de visitas",
+      "LABEL-TITLE-1": "Crear ",
+      "LABEL-TITLE-2": "Árbol de decisión",
+      "LABEL-DECISION-TREE-DESIGNER-TITLE": "Diseñador",
+      "LABEL-DECISION-TREE-DESIGNER-SUBTITLE": "Introduzca las preguntas y opciones de respuesta desde la barra de herramientas",
+      "LABEL-DECISION-TREE-PREVIEWER-TITLE": "Previsualizador",
+      "LABEL-DECISION-TREE-PREVIEWER-SUBTITLE": "Previsualización del diseño",
+      "LABEL-NAME": "Nombre",
+      "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
+      "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 150 caracteres",
+      "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",      
       "BTN-CANCEL": "Cancelar",
-      "BTN-CREATE": "Crear",
-      "BTN-CLOSE": "Cerrar"
+      "BTN-CREATE": "Crear"
     },
     "EDIT": {
-      "LABEL-TITLE-1-STUDY-1": "Tratamiento de la ",
-      "LABEL-TITLE-2-STUDY-1": "Sintomatología Urinaria",
-      "LABEL-TITLE-1-STUDY-2": "Tratamiento Láser para el tratamiento de la ",
-      "LABEL-TITLE-2-STUDY-2": "Sintomatología Urinaria",
-      "LABEL-TITLE-1-STUDY-3": "Tratamiento Láser para el tratamiento de la ",
-      "LABEL-TITLE-2-STUDY-3": "Atrofia vaginal",
-      "LABEL-CLINICAL-DATA-TITLE": "Identificación y datos clínicos",
-      "TEXT-CLINICAL-DATA-SUBTITLE": "Datos del paciente",
-      "LABEL-SESSIONS-TITLE": "Visitas",
-      "TEXT-SESSIONS-SUBTITLE": "Gestión de visitas",
-      "TEXT-TOOLTIP-BTN-EDIT": "Editar estudio",
-      "TEXT-TOOLTIP-BTN-SAVE-CHANGES": "Guardar cambios",
-      "TEXT-TOOLTIP-BTN-CANCEL-CHANGES": "Cancelar cambios",
-      "LABEL-DROP-OUT-TITLE": "Drop Out",
-      "TEXT-DROP-OUT-SUBTITLE": "EStudio abandonado",
-      "LABEL-MOTIVE": "Motivo",
-      "BTN-EXPORT-TO-EXCEL": "Exportar a Excel",
-      "BTN-DROP-OUT": "Abandonar estudio",
-      "TEXT-STUDY-DROP-OUT-SUCCESS": "El estudio ha sido abandonado correctamente",
-      "TEXT-STUDY-DROP-OUT-ERROR": "No se ha podido abandonar el estudio",
-      "LABEL-ABANDONED-STUDIO": "Estudio abandonado",
-      "LABEL-STUDY-DATA": "Datos estudio",
-      "BTN-CLOSE": "Cerrar"
+      "LABEL-TITLE-1": "Actualizar ",
+      "LABEL-TITLE-2": "Árbol de decisión",
+      "LABEL-DECISION-TREE-DESIGNER-TITLE": "Diseñador",
+      "LABEL-DECISION-TREE-DESIGNER-SUBTITLE": "Introduzca las preguntas y opciones de respuesta desde la barra de herramientas",
+      "LABEL-DECISION-TREE-PREVIEWER-TITLE": "Previsualizador",
+      "LABEL-DECISION-TREE-PREVIEWER-SUBTITLE": "Previsualización del diseño",
+      "LABEL-NAME": "Nombre",
+      "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
+      "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 150 caracteres",
+      "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",    
+      "LABEL-ID-REF": "ID.Ref",  
+      "LABEL-CREATED-DATE": "Fecha de creación",  
+      "BTN-CANCEL": "Cancelar",
+      "BTN-UPDATE": "Actualizar"
     },
-    "DROP-OUT": {
-      "LABEL-TITLE-1": "Abandonar ",
-      "LABEL-TITLE-2": "Estudio",      
-      "LABEL-MOTIVE": "Motivo",
-      "TEXT-PLACEHOLDER-MOTIVE": "Indique el motivo de abandono del estudio",
-      "ERROR-MOTIVE-MAX-LENGTH": "El campo Motivo no puede contener más de 250 caracteres",   
-      "BTN-DROP-OUT": "Abandonar estudio",
-      "BTN-CANCEL": "Cancelar"
+    "DESIGNER": {
+      "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",
+      "TEXT-TOOLTIP-BTN-REMOVE-ITEM": "Eliminar item",
+      "TEXT-TOOLTIP-BTN-SELECTED-ITEM": "Seleccione un Item para editarlo",
+      "LABEL-ITEM": "Item",
+      "LABEL-QUESTION": "Pregunta",
+      "LABEL-ANSWER": "Respuesta",
+      "TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE": "Seleccione el tipo de Item",
+      "LABEL-TEXT": "Texto",
+      "ERROR-TEXT-REQUIRED": "El campo Texto es obligatorio",
+      "ERROR-TEXT-MAX-LENGTH": "El campo Texto no puede contener más de 150 caracteres",
+      "LABEL-SUBTEXT": "SubTexto",
+      "ERROR-SUBTEXT-MAX-LENGTH": "El campo Texto no puede contener más de 150 caracteres",
+      "LABEL-QUESTION-CHOICES-TITLE": "Opciones de respuesta",
+      "LABEL-QUESTION-CHOICES-SUBTITLE": "Máximo número de respuestas: 4",
+      "TEXT-TOOLTIP-BTN-CREATE-CHOICE": "Crear nueva opción de respuesta",
+      "TEXT-TOOLTIP-BTN-REMOVE-CHOICE": "Eliminar opción de respuesta",
+      "LABEL-GOTO-ITEM": "Ir a Item",
+      "LABEL-TEXT-LINK": "Enlace",
+      "ERROR-TEXT-LINK-MAX-LENGTH": "El campo Enlace no puede contener más de 200 caracteres",      
+      "LABEL-INFO": "Info",
+      "LABEL-INFO-DESC": "Texto informativo del enlace",
+      "ERROR-INFO-MAX-LENGTH": "El campo Info no puede contener más de 150 caracteres",
+      "TEXT-TOOLTIP-BTN-TEXT-EDITOR": "Abrir editor de texto",
+      "LABEL-TEXT-EDITOR-TITLE-1": "Editor de ",
+      "LABEL-TEXT-EDITOR-TITLE-2": "Texto",
+      "ERROR-TEXT-EDITOR-CONTENT-REQUIRED": "Debe indicar un contenido",
+      "ERROR-TEXT-EDITOR-CONTENT-MAX-LENGTH": "El texto no puede contener más de 2000 caracteres",
+      "BTN-CANCEL": "Cancelar",
+      "BTN-ACCEPT": "Aceptar"
+    },
+    "PREVIEWER": {
+      "TEXT-INFO-NO-ITEMS": "No hay items disponibles",
+      "LABEL-QUESTION": "Pregunta",
+      "LABEL-ANSWER": "Respuesta"
     },
     "SHARED": {
-      "CLINICAL-DATA": {
-        "LABEL-PATIENT-CODE": "Código de paciente",
-        "TEXT-PATIENT-CODE-INFO": "Campo generado por el sistema",
-        "LABEL-BIRTH-DATE": "Fecha de nacimiento",
-        "ERROR-BIRTH-DATE-REQUIRED": "El campo Fecha de nacimiento es obligatorio",
-        "LABEL-WEIGHT": "Peso",
-        "LABEL-WEIGHT-INFO": "Kilogramos",
-        "ERROR-WEIGHT-REQUIRED": "El campo Peso es obligatorio",
-        "ERROR-WEIGHT-MIN": "El dato no puede ser inferior a 20",
-        "ERROR-WEIGHT-MAX": "El dato no puede ser superior a 250",
-        "LABEL-HEIGHT": "Altura",
-        "LABEL-HEIGHT-INFO": "Metros",
-        "ERROR-HEIGHT-REQUIRED": "El campo Altura es obligatorio",
-        "ERROR-HEIGHT-MIN": "El dato no puede ser inferior a 0.6 metros",
-        "ERROR-HEIGHT-MAX": "El dato no puede ser superior a 2.5 metros",
-        "LABEL-BMI": "BMI",
-        "LABEL-BMI-INFO": "Índice de masa corporal",
-        "TEXT-GINECOLOGICAL-DATA": "Datos ginecológicos",
-        "LABEL-PARITY": "Paridad",
-        "ERROR-PARITY-MIN": "El dato no puede ser inferior a 1",
-        "ERROR-PARITY-MAX": "El dato no puede ser superior a 99",
-        "LABEL-VAGINAL-DELIVERIES": "Partos vaginales",
-        "ERROR-VAGINAL-DELIVERIES-MIN": "El dato no puede ser inferior a 1",
-        "ERROR-VAGINAL-DELIVERIES-MAX": "El dato no puede ser superior a 99",
-        "LABEL-CAESAREANS": "Cesáreas",
-        "ERROR-CAESAREANS-MIN": "El dato no puede ser inferior a 1",
-        "ERROR-CAESAREANS-MAX": "El dato no puede ser superior a 99",
-        "LABEL-COMPLICATIONS-IN-CHILD-BIRTH": "Complicaciones en el parto",
-        "ERROR-COMPLICATIONS-IN-CHILD-BIRTH-MAX-LENGTH": "El campo Complicaciones en el parto no puede contener más de 250 caracteres",
-        "TEXT-MENOPAUSE-DATA": "Menopausia",
-        "LABEL-CURRENTLY-IN-MENOPAUSE": "¿Actualmente en menopausia?",
-        "LABEL-AGE-ON-SET-MENOPAUSE": "Edad inicio menopausia",
-        "ERROR-AGE-ON-SET-MENOPAUSE-MIN": "El campo Edad inicio menopausia no puede ser inferior a 1",
-        "ERROR-AGE-ON-SET-MENOPAUSE-MAX": "El campo Edad inicio menopausia no puede ser superior a 99",
-        "LABEL-HORMONAL-REPLACEMENT-THERAPY": "¿Terapia de remplazo hormonal?",
-        "TEXT-CLINICAL-DATA-CREATE-SUCCESS": "Los datos clínicos del paciente se han dado de alta correctamente",
-        "TEXT-CLINICAL-DATA-EDIT-SUCCESS": "Los datos clínicos del paciente se han actualizado correctamente",
-        "TEXT-CLINICAL-DATA-CREATE-ERROR": "No se han podido dar de alta los datos clínicos del paciente"
-      },
       "FILTER": {
         "LABEL-FROM-DATE": "Fecha desde",
         "LABEL-TO-DATE": "Fecha hasta",
@@ -144,288 +136,8 @@
         "ERROR-TO-DATE-VALID": "La Fecha hasta no es válida",
         "LABEL-FILTER": "Filtro",
         "TEXT-PLACEHOLDER-FILTER": "Introduzca texto para comenzar la búsqueda"
-      },
-      "SESSIONS": {
-        "SHARED": {
-          "LABEL-MESOFILLER-SESSION-TYPE": "Mesofiller",
-          "LABEL-LASER-SESSION-TYPE": "Láser",
-          "LABEL-TRACKING-SESSION-TYPE": "Seguimiento",
-          "MANAGER": {
-            "LABEL-NAME": "Nombre",
-            "LABEL-DATE": "Fecha",
-            "LABEL-TREATMENT": "Tratamiento",
-            "LABEL-LIKERT-1": "Likert-1",
-            "LABEL-LIKERT-2": "Likert-2",
-            "LABEL-LIKERT-3": "Likert-3",
-            "LABEL-LIKERT-4": "Likert-4",
-            "LABEL-COMMENTS": "Comentarios",
-            "LABEL-REASON": "Motivo (Visita fuera de calendario)",
-            "TEXT-TOOLTIP-BTN-EDIT": "Editar visita",
-            "TEXT-TOOLTIP-BTN-REMOVE": "Eliminar visita",
-            "TEXT-SESSION-CREATE-SUCCESS": "La visita se ha creado correctamente",
-            "TEXT-SESSION-CREATE-ERROR": "La visita no se ha podido crear",
-            "DIALOG-TITLE-REMOVE": "Eliminar visita",
-            "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar la visita?",
-            "TEXT-SESSION-DELETE-SUCCESS": "La visita se ha eliminado correctamente",
-            "TEXT-SESSION-DELETE-ERROR": "No se ha podido eliminar la visita"
-          },
-          "CREATE": {
-            "LABEL-TITLE-1": "Crear visita",
-            "LABEL-NAME": "Nombre",
-            "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
-            "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 50 caracteres",
-            "LABEL-DATE": "Fecha",
-            "ERROR-DATE-REQUIRED": "El campo Fecha es obligatorio",
-            "LABEL-TREATMENT": "Tratamiento",
-            "ERROR-TREATMENT-MAX-LENGTH": "El campo Tratamiento no puede contener más de 50 caracteres",
-            "LABEL-LIKERT-TITLE": "Escala tipo Likert",
-            "TEXT-LIKERT-SUBTITLE": "A la finalización del tratamiento, los voluntarios valoran distintos aspectos del tratamiento mediante la siguiente encuesta tipo Likert.",
-            "LABEL-COMMENTS": "Comentarios",
-            "ERROR-COMMENTS-MAX-LENGTH": "El campo Comentarios no puede contener más de 500 caracteres",
-            "LABEL-OUT-OF-PROTOCOL": "Visita fuera de calendario",
-            "LABEL-REASON": "Motivo",
-            "TEXT-PLACEHOLDER-REASON": "Indique el motivo de visita fuera de calendario",
-            "ERROR-REASON-REQUIRED": "El campo Motivo es obligatorio",
-            "ERROR-REASON-MAX-LENGTH": "El campo Motivo no puede contener más de 250 caracteres",
-            "BTN-CREATE": "Crear",
-            "BTN-CANCEL": "Cancelar"
-          },
-          "EDIT": {
-            "LABEL-TITLE-1": "Editar visita",
-            "LABEL-NAME": "Nombre",
-            "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
-            "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 50 caracteres",
-            "LABEL-DATE": "Fecha",
-            "ERROR-DATE-REQUIRED": "El campo Fecha es obligatorio",
-            "LABEL-TREATMENT": "Tratamiento",
-            "ERROR-TREATMENT-MAX-LENGTH": "El campo Tratamiento no puede contener más de 50 caracteres",
-            "LABEL-LIKERT-TITLE": "Escala tipo Likert",
-            "TEXT-LIKERT-SUBTITLE": "A la finalización del tratamiento, los voluntarios valoran distintos aspectos del tratamiento mediante la siguiente encuesta tipo Likert.",
-            "LABEL-COMMENTS": "Comentarios",
-            "ERROR-COMMENTS-MAX-LENGTH": "El campo Comentarios no puede contener más de 500 caracteres",
-            "LABEL-REASON": "Motivo",
-            "TEXT-PLACEHOLDER-REASON": "Indique el motivo para la visita fuera de calendario",
-            "ERROR-REASON-REQUIRED": "El campo Motivo es obligatorio",
-            "ERROR-REASON-MAX-LENGTH": "El campo Motivo no puede contener más de 250 caracteres",
-            "BTN-SAVE": "Guardar",
-            "BTN-CANCEL": "Cancelar"
-          }
-        },
-        "UI": {
-          "LABEL-ICIQ-1": "ICIQ-1",
-          "LABEL-ICIQ-2": "ICIQ-2",
-          "LABEL-ICIQ-3": "ICIQ-3",
-          "LABEL-ICIQ-SF": "ICIQ-SF",
-          "LABEL-ISI-1": "ISI-1",
-          "LABEL-ISI-2": "ISI-2",
-          "LABEL-ISI": "ISI",
-          "LABEL-ICIQ-TITLE": "Cuestonario incontinencia urinaria",
-          "TEXT-ICIQ-SUBTITLE": "Es un cuestionario autoadministrado que identifica a las personas con incontinencia de orina y el impacto en la calidad de vida.",
-          "LABEL-ISI-TITLE": "Cuestionario Índice gravedad incontinencia",
-          "TEXT-ISI-SUBTITLE": "El índice de gravedad de la incontinencia (ISI) consta de dos preguntas, relativas a la frecuencia y a la cantidad de pérdidas. Clasifica la incontinencia urinaria (IU) en leve, moderada, grave y muy grave."
-        },
-        "AV": {
-          "LABEL-FSFI-1": "FSFI-1",
-          "LABEL-FSFI-2": "FSFI-2",
-          "LABEL-FSFI-3": "FSFI-3",
-          "LABEL-FSFI-4": "FSFI-4",
-          "LABEL-FSFI-5": "FSFI-5",
-          "LABEL-FSFI-6": "FSFI-6",
-          "LABEL-FSFI-7": "FSFI-7",
-          "LABEL-FSFI-8": "FSFI-8",
-          "LABEL-FSFI-9": "FSFI-9",
-          "LABEL-FSFI-10": "FSFI-10",
-          "LABEL-FSFI-11": "FSFI-11",
-          "LABEL-FSFI-12": "FSFI-12",
-          "LABEL-FSFI-13": "FSFI-13",
-          "LABEL-FSFI-14": "FSFI-14",
-          "LABEL-FSFI-15": "FSFI-15",
-          "LABEL-FSFI-16": "FSFI-16",
-          "LABEL-FSFI-17": "FSFI-17",
-          "LABEL-FSFI-18": "FSFI-18",
-          "LABEL-FSFI-19": "FSFI-19",
-          "LABEL-FSFI-DESIRE": "FSFI-deseo",
-          "LABEL-FSFI-EXCITEMENT": "FSFI-excitación",
-          "LABEL-FSFI-LUBRICATION": "FSFI-lubricación",
-          "LABEL-FSFI-ORGASM": "FSFI-orgasmo",
-          "LABEL-FSFI-SATISFACTION": "FSFI-satisfacción",
-          "LABEL-FSFI-PAIN": "FSFI-dolor",
-          "LABEL-VHI-1": "VHI-1",
-          "LABEL-VHI-2": "VHI-2",
-          "LABEL-VHI-3": "VHI-3",
-          "LABEL-VHI-4": "VHI-4",
-          "LABEL-VHI-5": "VHI-5",
-          "LABEL-VHI-TOTAL": "VHI-Total",
-          "LABEL-MVI": "MVI",
-          "ERROR-MVI-REQUIRED": "El campo MVI es obligatorio",
-          "ERROR-MVI-MAX-LENGTH": "El campo MVI no puede contener más de 50 caracteres",
-          "LABEL-FSFI-TITLE": "Índice de función sexual femenina",
-          "TEXT-FSFI-SUBTITLE": "El FSFI es un instrumento sencillo de aplicar, con propiedades psicométricas adecuadas que permite evaluar la sexualidad en diferentes etapas de la vida en estudios epidemiológicos y clínicos. Se estructura en 6 dominios diferentes: deseo, excitación, lubricación, orgasmo, satisfacción y dolor. Todas las preguntas hacen referencia a las últimas 4 semanas.",
-          "LABEL-VHI-TITLE": "Puntuación del índice de salud vaginal de Gloria Bachman",
-          "TEXT-VHI-SUBTITLE": "El Vaginal Health Index (VHI) Score es una herramienta clínica que, mediante la evaluación de 5 parámetros, permite obtener una puntuación final que define el grado de atrofia del tracto genitourinario asignando una única puntuación a cada parámetro. La puntuación total oscila entre 5 y 25, con un punto de corte < 15 como índice de vagina atrófica."
-        }
-      },
-      "EVALUATION-TOOLS": {
-        "QUESTIONARY": {
-          "ERROR-QUESTION-OPTION-REQUIRED": "Debe seleccionar una opción"
-        },
-        "QUESTIONARY-INFO": {
-          "ICIQ-TITLE": "Incontinence Questionnaire-Urinary Incontinence Short Form (ICIQ-SF)",
-          "ICIQ-DESCRIPTION": "El ICIQ (International Consultation on Incontinence Questionnaire) es un cuestionario autoadministrado que identifica a las personas con incontinencia de orina y el impacto en la calidad de vida.",
-          "ICIQ-RESULTS": "<span class='results-title'>RESULTADOS</span><span>El ICIQ se crea sumando los resultados de las preguntas 1-3, y luego se clasifica de la siguiente manera:</span><span class='results-scale none'>0: none</span><span class='results-scale slight'>1-5: Slight</span><span class='results-scale moderate'>6-12: moderate</span><span class='results-scale severe'>13-18: severe</span><span class='results-scale very-severe'>19-21: very severe</span>",
-          "ISI-TITLE": "Incontinence severity index (ISI)",
-          "ISI-DESCRIPTION": "El índice de gravedad de la incontinencia (ISI) consta de dos preguntas, relativas a la frecuencia y a la cantidad de pérdidas. Clasifica la incontinencia urinaria (IU) en leve, moderada, grave y muy grave.",
-          "ISI-RESULTS": "<span class='results-title'>RESULTADOS</span><span>El ISI se crea multiplicando los resultados de las dos preguntas, y luego se clasifica de la siguiente manera:</span><span class='results-scale none'>0: none</span><span class='results-scale slight'>1-2: Slight</span><span class='results-scale moderate'>3-6: moderate</span><span class='results-scale severe'>8-9: severe</span><span class='results-scale very-severe'>12: very severe</span>",
-          "FSFI-TITLE": "Female Sexual Function Index (FSFI)",
-          "FSFI-DESCRIPTION": "El FSFI es un instrumento sencillo de aplicar, con propiedades psicométricas adecuadas que permite evaluar la sexualidad en diferentes etapas de la vida en estudios epidemiológicos y clínicos. Se estructura en 6 dominios diferentes: deseo, excitación, lubricación, orgasmo, satisfacción y dolor. Todas las preguntas hacen referencia a las últimas 4 semanas.",
-          "FSFI-RESULTS": "<span class='results-title'>RESULTADOS</span><span>Las puntuaciones individuales de cada dominio y la puntuación de la escala completa del FSFI se obtienen mediante la fórmula computacional que se indica en la tabla siguiente. Las puntuaciones individuales de dominio se obtienen sumando las puntuaciones de los ítems individuales que componen el dominio y multiplicando la suma por el factor de dominio (véase más abajo). La puntuación de la escala completa se obtiene sumando las puntuaciones de los seis ámbitos. Hay que tener en cuenta que, dentro de los dominios individuales, una puntuación de dominio de cero indica que no se informó de ninguna actividad sexual durante el último mes.</span><table class='results' [cellPadding]='2'> <tr> <th>Dominio</th> <th>Preguntas</th> <th>Puntaje</th> <th>Factor</th> <th>Mínimo</th> <th>Máximo</th> </tr><tr> <td>Deseo</td><td>1-2</td><td>1-5</td><td>0,6</td><td>1,2</td><td>6</td></tr><tr> <td>Excitación</td><td>3-6</td><td>0-5</td><td>0,3</td><td>0</td><td>6</td></tr><tr> <td>Lubricación</td><td>7-10</td><td>0-5</td><td>0,3</td><td>0</td><td>6</td></tr><tr> <td>Orgasmo</td><td>11-13</td><td>0-5</td><td>0,4</td><td>0</td><td>6</td></tr><tr> <td>Satisfacción</td><td>14-16</td><td>0-5</td><td>0,4</td><td>0,8</td><td>6</td></tr><tr> <td>Dolor</td><td>17-19</td><td>0-5</td><td>0,4</td><td>0</td><td>6</td></tr></table>",
-          "VHI-TITLE": "Gloria Bachman Vaginal Health Index Score (VHI)",
-          "VHI-DESCRIPTION": "El Vaginal Health Index (VHI) Score es una herramienta clínica que, mediante la evaluación de 5 parámetros, permite obtener una puntuación final que define el grado de atrofia del tracto genitourinario asignando una única puntuación a cada parámetro. La puntuación total oscila entre 5 y 25, con un punto de corte < 15 como índice de vagina atrófica.",
-          "MVI-TITLE": "Maturation Value Index (MVI)",
-          "MVI-DESCRIPTION": "El VMI o índice citológico de la maduración epitelial es el criterio estándar para la confirmación de la atrofia vaginal. Esta prueba evalúa la proporción relativa de los tipos de células epiteliales vaginales parabasales, intermedias y superficiales.",
-          "LIKERT-TITLE": "Likert",
-          "LIKERT-DESCRIPTION": "A la finalización del tratamiento, los voluntarios valoran distintos aspectos del tratamiento mediante la siguiente encuesta tipo Likert."
-        },
-        "QUESTION-INFO": {
-          "LABEL-ANSWER": "Respuesta",
-          "BTN-CLOSE": "Cerrar"
-        }
       }
-    },
-    "PROTOCOLS": {
-      "UI": {
-        "LABEL-TITLE-1": "APLICACIÓN DE MESOFILLER SENSITIVE PARA EL TRATAMIENTO DE LA ",
-        "LABEL-TITLE-2": "SINTOMATOLOGÍA URINARIA",
-        "TEXT-PROTOCOL-TITLE": "Protocolo",
-        "TEXT-PROTOCOL-SUBTITLE": "Instrucciones de aplicación",
-        "TEXT-QUESTIONARIES-TITLE": "Cuestionarios",
-        "TEXT-QUESTIONARIES-SUBTITLE": "Información",
-        "TEXT-OUT-OF-PROTOCOL": "Fuera de calendario",
-        "SESSION1": {
-          "LABEL-TITLE": "Visita 1 (D1)",
-          "TEXT-ITEM1": "Firma del consentimiento informado",
-          "TEXT-ITEM2": "Revisión de los criterios de inclusión y exclusión",
-          "TEXT-ITEM3": "Evaluación de la condición de la zona a tratar y decisión sobre el procedimiento individualizado a realizar",
-          "TEXT-ITEM4": "Cumplimentación de los datos demográficos en la aplicación",
-          "TEXT-ITEM5": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM6": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION2": {
-          "LABEL-TITLE": "Visita 2 (D30)",
-          "TEXT-ITEM1": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM2": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION3": {
-          "LABEL-TITLE": "Visita 3 (D60)",
-          "TEXT-ITEM1": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM2": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION4": {
-          "LABEL-TITLE": "Visita 4 (D90)",
-          "TEXT-ITEM1": "Seguimiento telefónico del paciente",
-          "TEXT-ITEM2": "Cumplimentación del ICIQ + ISI + Likert en la aplicación"
-        },
-        "SESSION5": {
-          "LABEL-TITLE": "Visita 5 (D120)",
-          "TEXT-ITEM1": "Seguimiento telefónico del paciente",
-          "TEXT-ITEM2": "Cumplimentación del ICIQ + ISI + Likert en la aplicación"
-        },
-        "BTN-CLOSE": "Cerrar"
-      },
-      "LASER-UI": {
-        "LABEL-TITLE-1": "APLICACIÓN DE MESOFILLER SENSITIVE CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA ",
-        "LABEL-TITLE-2": "SINTOMATOLOGÍA URINARIA",
-        "TEXT-PROTOCOL-TITLE": "Protocolo",
-        "TEXT-PROTOCOL-SUBTITLE": "Instrucciones de aplicación",
-        "TEXT-QUESTIONARIES-TITLE": "Cuestionarios",
-        "TEXT-QUESTIONARIES-SUBTITLE": "Información",
-        "TEXT-OUT-OF-PROTOCOL": "Fuera de calendario",
-        "SESSION1": {
-          "LABEL-TITLE": "Visita 1 (D1)",
-          "TEXT-ITEM1": "Firma del consentimiento informado",
-          "TEXT-ITEM2": "Revisión de los criterios de inclusión y exclusión",
-          "TEXT-ITEM3": "Evaluación de la condición de la zona a tratar y decisión sobre el procedimiento individualizado a realizar",
-          "TEXT-ITEM4": "Cumplimentación de los datos demográficos en la aplicación",
-          "TEXT-ITEM5": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM6": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION2": {
-          "LABEL-TITLE": "Visita 2 (D30)",
-          "TEXT-ITEM1": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM2": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION3": {
-          "LABEL-TITLE": "Visita 3 (D37)",
-          "TEXT-ITEM1": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM2": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION4": {
-          "LABEL-TITLE": "Visita 4 (D67)",
-          "TEXT-ITEM1": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM2": "Tratamiento láser"
-        },
-        "SESSION5": {
-          "LABEL-TITLE": "Visita 5 (D97)",
-          "TEXT-ITEM1": "Cumplimentación del ICIQ + ISI en la aplicación",
-          "TEXT-ITEM2": "Tratamiento láser"
-        },
-        "SESSION6": {
-          "LABEL-TITLE": "Visita 6 (3M post-fin)",
-          "TEXT-ITEM1": "Seguimiento telefónico del paciente",
-          "TEXT-ITEM2": "Cumplimentación del ICIQ + ISI + Likert en la aplicación"
-        },
-        "SESSION7": {
-          "LABEL-TITLE": "Visita 7 (6M post-fin)",
-          "TEXT-ITEM1": "Seguimiento telefónico del paciente",
-          "TEXT-ITEM2": "Cumplimentación del ICIQ + ISI + Likert en la aplicación"
-        },
-        "BTN-CLOSE": "Cerrar"
-      },
-      "LASER-AV": {
-        "LABEL-TITLE-1": "APLICACIÓN DE MESOFILLER SENSITIVE CON EL TRATAMIENTO LÁSER PARA EL TRATAMIENTO DE LA ",
-        "LABEL-TITLE-2": "ATROFIA VAGINAL",
-        "TEXT-PROTOCOL-TITLE": "Protocolo",
-        "TEXT-PROTOCOL-SUBTITLE": "Instrucciones de aplicación",
-        "TEXT-QUESTIONARIES-TITLE": "Cuestionarios",
-        "TEXT-QUESTIONARIES-SUBTITLE": "Información",
-        "TEXT-OUT-OF-PROTOCOL": "Fuera de calendario",
-        "SESSION1": {
-          "LABEL-TITLE": "Visita 1 (D1)",
-          "TEXT-ITEM1": "Firma del consentimiento informado",
-          "TEXT-ITEM2": "Revisión de los criterios de inclusión y exclusión",
-          "TEXT-ITEM3": "Evaluación de la condición de la zona a tratar y decisión sobre el procedimiento individualizado a realizar",
-          "TEXT-ITEM4": "Cumplimentación de los datos demográficos en la aplicación",
-          "TEXT-ITEM5": "Cumplimentación del FSFI + VHI + MVI en la aplicación",
-          "TEXT-ITEM6": "Aplicación del mesofiller sensitive 20 mg/ml"
-        },
-        "SESSION2": {
-          "LABEL-TITLE": "Visita 2 (D7)",
-          "TEXT-ITEM1": "Cumplimentación del FSFI + VHI + MVI en la aplicación",
-          "TEXT-ITEM2": "Tratamiento láser"
-        },
-        "SESSION3": {
-          "LABEL-TITLE": "Visita 3 (D37)",
-          "TEXT-ITEM1": "Cumplimentación del FSFI + VHI + MVI en la aplicación",
-          "TEXT-ITEM2": "Tratamiento láser"
-        },
-        "SESSION4": {
-          "LABEL-TITLE": "Visita 4 (D67)",
-          "TEXT-ITEM1": "Cumplimentación del FSFI + VHI + MVI en la aplicación",
-          "TEXT-ITEM2": "Tratamiento láser"
-        },
-        "SESSION5": {
-          "LABEL-TITLE": "Visita 5 (3M post-fin)",
-          "TEXT-ITEM1": "Seguimiento telefónico del paciente",
-          "TEXT-ITEM2": "Cumplimentación del FSFI + VHI + MVI + Likert en la aplicación"
-        },
-        "SESSION6": {
-          "LABEL-TITLE": "Visita 6 (6M post-fin)",
-          "TEXT-ITEM1": "Seguimiento telefónico del paciente",
-          "TEXT-ITEM2": "Cumplimentación del FSFI + VHI + MVI + Likert en la aplicación"
-        },
-        "BTN-CLOSE": "Cerrar"
-      }
-    }
+    } 
   },
   "ERROR": {
     "TITLE": "Error",
