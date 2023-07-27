@@ -1,0 +1,77 @@
+<div fxLayout="column" fxLayout.gt-sm="row" fxFlex="grow" fxFill="" fxLayoutAlign="start center" class="container">
+    <div fxLayout="column" class="gradient primary" fxFlex="" fxFill="" fxLayoutAlign="start center"
+        fxLayoutAlign.gt-sm="center center" style="position: relative;">
+        <mat-card class="login-panel">
+            <mat-card-header>
+                <mat-icon color="primary" mat-card-avatar>account_circle</mat-icon>
+                <mat-card-title>
+                    {{ 'AUTH.LOG-IN.LABEL-TITLE' | translate }}
+                </mat-card-title>
+                <mat-card-subtitle>{{ 'AUTH.LOG-IN.LABEL-SUBTITLE' | translate }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="logInForm" fxFlex="" (ngSubmit)="onSubmit()" fxLayoutGap="10px">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <mat-form-field fxFlex="">
+                            <mat-label>{{ 'AUTH.LOG-IN.LABEL-EMAIL' | translate }}</mat-label>
+                            <input matInput [value]="" formControlName="email" required>
+                            <mat-icon matPrefix style="color:grey">person</mat-icon>
+                            <mat-error *ngIf="logInForm.get('email')?.hasError('required')">
+                                <span [innerHtml]="'AUTH.LOG-IN.ERROR-EMAIL-REQUIRED' | translate ">
+                                </span>
+                            </mat-error>
+                            <mat-error *ngIf="logInForm.get('email')?.hasError('maxlength')">
+                                {{ 'AUTH.LOG-IN.ERROR-EMAIL-MAX-LENGTH' | translate }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <mat-form-field fxFlex="">
+                            <mat-label>{{ 'AUTH.LOG-IN.LABEL-PASSWORD' | translate }}</mat-label>
+                            <input matInput [value]="" formControlName="password"
+                                [type]="hidePassword ? 'password' : 'text'">
+                            <mat-icon matPrefix style="color:grey">lock</mat-icon>
+                            <mat-icon matSuffix (click)="hidePassword = !hidePassword" class="hide-show-password"
+                                style="cursor: pointer">
+                                {{hidePassword ? 'visibility_off' :
+                                'visibility'}}</mat-icon>
+                            <mat-error *ngIf="logInForm.get('password')?.hasError('required')">
+                                <span [innerHtml]="'AUTH.LOG-IN.ERROR-PASSWORD-REQUIRED' | translate ">
+                                </span>
+                            </mat-error>
+                            <mat-error *ngIf="logInForm.get('password')?.hasError('maxlength')">
+                                {{ 'AUTH.LOG-IN.ERROR-PASSWORD-MAX-LENGTH' | translate }}
+                            </mat-error>
+                            <mat-error *ngIf="logInForm.get('password')?.hasError('invalidDataAccess')">
+                                {{ 'AUTH.LOG-IN.ERROR-INVALID-DATA-ACCESS' | translate }}
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="center center"
+                        *ngIf="logInForm.get('password')?.hasError('invalidDataAccess')">
+                        <mat-hint class="small-text" style="max-width: 320px">{{
+                            'AUTH.LOG-IN.TEST-INFO-LOGIN-FIRST-TIME' |
+                            translate }}</mat-hint>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <mat-checkbox fxFlex="" color="primary" formControlName="rememberMe"> {{
+                            'AUTH.LOG-IN.LABEL-REMEMBERME'
+                            |
+                            translate }}</mat-checkbox>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <button type="submit" fxFlex="" mat-flat-button color="primary" aria-label="Identificarse"
+                            [disabled]="logInForm.invalid" [ngClass]="{'disabled-button' : logInForm.invalid}"
+                            cdkFocusInitial>
+                            {{ 'AUTH.LOG-IN.BTN-IDENTIFY' | translate }}
+                        </button>
+                    </div>
+                </form>
+            </mat-card-content>
+            <mat-card-footer style="padding:5px">
+                <mat-progress-bar fxFlex="" *ngIf="showMatProgress" mode="indeterminate"></mat-progress-bar>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>
+

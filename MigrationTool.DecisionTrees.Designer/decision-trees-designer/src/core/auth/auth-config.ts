@@ -13,7 +13,7 @@ export const authConfig = new InjectionToken<AuthConfig>('Auth Configuration', {
       clientId: 'angularclient',
       responseType: 'code',
       oidc: false,
-      logoutUrl: window.location.origin,
+      //logoutUrl: window.location.origin,
       scope: 'openid profile roles decisiontrees.api',
       tokenEndpoint : /*inject(AppConfigService).issuer*/ "http://localhost:10000" + "/connect/token-by-password",
       userinfoEndpoint : /*inject(AppConfigService).issuer*/ "http://localhost:10000" + "/connect/userinfo",

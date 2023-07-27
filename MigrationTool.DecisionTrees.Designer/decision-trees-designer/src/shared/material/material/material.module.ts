@@ -17,11 +17,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import {MatDividerModule} from '@angular/material/divider';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -45,28 +43,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatButtonToggleModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
-    /* MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    MatDialogModule,
-    MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatExpansionModule */
+    MatMenuModule
   ],
   exports: [
     MatToolbarModule,
@@ -87,29 +65,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatButtonToggleModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
-/*     MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatTooltipModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    MatDialogModule,
-    MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatListModule,
-    MatExpansionModule */
+    MatMenuModule
   ]
 })
 export class MaterialModule { }

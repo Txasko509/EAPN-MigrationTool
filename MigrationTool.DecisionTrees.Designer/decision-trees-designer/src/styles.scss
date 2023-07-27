@@ -122,6 +122,15 @@ $migration-tool-theme: mat.define-light-theme((color: (primary: mat.define-palet
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.gradient {
+  background-color: transparent;
+  background-position: 50%;
+}
+
+.gradient.primary {
+  background-image: linear-gradient(to right, map-get($palette-accent1, 50) 0%, map-get($palette-accent1, 200) 100%);
+}
+
 .dialog-title {
   font-weight: normal;
   font-size: 16pt;

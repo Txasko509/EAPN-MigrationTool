@@ -1,0 +1,18 @@
+.container {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+.login-panel {
+    background-color: white;
+    padding: 20px;
+    z-index: 1;
+    //min-width: 450px;
+}
+mat-icon.mat-mdc-card-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+}

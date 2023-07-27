@@ -5,12 +5,26 @@
             <img src="./assets/images/eapn_logo2.png" alt="EAPN Madrid" width="65px" (click)="onHomeClick()"
                 style="cursor: pointer;" />   
 
-            <!-- This fills the remaining space of the current row -->
-           <!--  <span class="fill-remaining-space"></span> -->
-
             <!-- Logo Unir -->
             <a href="https://www.unir.net/" target="_blank"><img src="./assets/images/logo_unir.png" alt="Unir" width="120px" (click)="onHomeClick()"
             style="cursor: pointer;" /></a>
+
+            <!-- This fills the remaining space of the current row -->
+            <span class="fill-remaining-space"></span>
+
+            <div *ngIf="isAuthenticated$ | async">
+                <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+                    <mat-icon>person</mat-icon>
+                    {{fullName}}
+                </button>
+                <mat-menu #menu="matMenu" [overlapTrigger]="false">
+                    <mat-divider fxFlex=""></mat-divider>
+                    <button mat-menu-item (click)="onLogoutClick()">
+                        <mat-icon>exit_to_app</mat-icon>
+                        {{ 'HEADER.LABEL-LOGOUT' | translate }}
+                    </button>
+                </mat-menu>
+            </div>
         </mat-toolbar-row>
     </mat-toolbar>
 </div>
