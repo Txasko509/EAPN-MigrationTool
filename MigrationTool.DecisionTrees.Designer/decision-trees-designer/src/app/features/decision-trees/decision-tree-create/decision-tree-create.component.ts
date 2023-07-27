@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Item } from 'src/core/interfaces/item';
 import { DecisionTreeService } from 'src/core/services/decision-tree.service';
 import { DecisionTreeDesignerComponent } from '../designer/decision-tree-designer/decision-tree-designer.component';

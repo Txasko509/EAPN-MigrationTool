@@ -67,7 +67,7 @@
     </div>
 </mat-dialog-content>
 <div mat-dialog-actions>
-    <button mat-raised-button color="primary" (click)="onCreateClick()" [disabled]="this.createDecisionTreeForm.invalid || !designer.IsSelectedItemValid">{{
+    <button mat-raised-button color="primary" (click)="onCreateClick()" [disabled]="this.createDecisionTreeForm.invalid || (designer && !designer.IsSelectedItemValid)">{{
         'DECISION-TREES.CREATE.BTN-CREATE' |
         translate }}</button>
     <button mat-button [mat-dialog-close]="null">{{ 'DECISION-TREES.CREATE.BTN-CANCEL' | translate }}</button>
