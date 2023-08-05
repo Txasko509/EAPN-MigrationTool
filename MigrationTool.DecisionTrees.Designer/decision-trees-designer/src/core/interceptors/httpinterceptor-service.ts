@@ -23,7 +23,11 @@ export class HttpInterceptorService implements HttpInterceptor {
         this.spinnerService.display(false);
         if(error.status === 401){
           this.router.navigateByUrl(`${'unauthorized'}`); 
-        }else{
+        }
+        else if(error.status === 403){
+          // do nothing
+        }
+        else{
           this.router.navigateByUrl(`${'error'}`); 
         }        
         console.error("error is intercept", error);

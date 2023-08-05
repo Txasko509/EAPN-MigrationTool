@@ -45,7 +45,8 @@
                                         <input formControlName="name" matInput
                                             placeholder="{{ 'DECISION-TREES.EDIT.LABEL-NAME' | translate }}" required>
                                         <mat-error *ngIf="editDecisionTreeForm.get('name')?.hasError('required')">
-                                            {{ 'DECISION-TREES.EDIT.ERROR-NAME-REQUIRED' | translate }}
+                                            <span [innerHtml]="'DECISION-TREES.EDIT.ERROR-NAME-REQUIRED' | translate ">
+                                            </span>
                                         </mat-error>
                                         <mat-error *ngIf="editDecisionTreeForm.get('name')?.hasError('maxlength')">
                                             {{ 'DECISION-TREES.EDIT.ERROR-NAME-MAX-LENGTH' | translate }}

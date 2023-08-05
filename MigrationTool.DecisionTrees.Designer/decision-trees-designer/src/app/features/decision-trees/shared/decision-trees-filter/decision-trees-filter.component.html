@@ -2,8 +2,8 @@
     <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between start"
         fxFlex="" fxFill="" fxLayoutGap="20px" fxLayoutGap.xs="0px">
         <!-- Start date -->
-        <mat-form-field fxFlex="20" fxFill="">
-            <input matInput [matDatepicker]="picker1" [max]="filterForm.get('from')?.value"
+        <mat-form-field fxFlex="20" fxFlex.xs="" fxFill="">
+            <input matInput [matDatepicker]="picker1" [max]="filterForm.get('to')?.value"
                 placeholder="{{ 'DECISION-TREES.SHARED.FILTER.LABEL-FROM-DATE' | translate }}" formControlName="from"
                 (focus)="picker1.open()">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -13,8 +13,8 @@
             </mat-error>
         </mat-form-field>
         <!-- End date -->
-        <mat-form-field fxFlex="20" fxFill="">
-            <input matInput [matDatepicker]="picker2" [min]="filterForm.get('to')?.value"
+        <mat-form-field fxFlex="20" fxFlex.xs="" fxFill="">
+            <input matInput [matDatepicker]="picker2" [min]="filterForm.get('from')?.value"
                 placeholder="{{ 'DECISION-TREES.SHARED.FILTER.LABEL-TO-DATE' | translate }}" formControlName="to"
                 (focus)="picker2.open()">
             <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
@@ -31,6 +31,9 @@
             <mat-label>{{ 'DECISION-TREES.SHARED.FILTER.LABEL-FILTER' | translate }}</mat-label>
             <input formControlName="searchText" matInput
                 placeholder="{{ 'DECISION-TREES.SHARED.FILTER.TEXT-PLACEHOLDER-FILTER' | translate }}" #input>
+            <mat-error *ngIf="filterForm.get('searchText')?.hasError('maxlength')">
+                {{ 'DECISION-TREES.SHARED.FILTER.ERROR-SEARCH-TEXT-MAX-LENGTH' | translate }}
+            </mat-error>
         </mat-form-field>                   
     </div>
 </form>  

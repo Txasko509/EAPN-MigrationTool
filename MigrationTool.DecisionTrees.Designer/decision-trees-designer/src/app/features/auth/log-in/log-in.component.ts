@@ -31,7 +31,7 @@ export class LogInComponent implements OnInit {
 
     this.logInForm = this.fb.group({
       email: new FormControl(accessData ? accessData.email : '', [
-        Validators.required, Validators.maxLength(100)
+        Validators.required, Validators.maxLength(50)
       ]),
       password: new FormControl(accessData ? accessData.password : '', [
         Validators.required, Validators.maxLength(20)

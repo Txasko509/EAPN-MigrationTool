@@ -14,10 +14,13 @@
             <app-decision-trees-filter fxFlex="" fxFill="" [formGroup]="filterFormGroup"
                 (change)="onChangeFilter()"></app-decision-trees-filter>
         </div>
-        <div fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="start start">
+        <div *ngIf="dataSource.data.length > 0" fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="start start">
                 <app-shared-static-table fxFlex="" fxFill="" sortActive="date" sortDirection="desc" [dataSource]="dataSource"
                 [columnsdef]="columns" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" [resultsLength]="dataSource.data.length"
                 (actionClick)="onActionClick($event)"></app-shared-static-table>
+        </div> 
+        <div *ngIf="dataSource.data.length === 0 && !spinnerService.isDisplayOn()" fxLayout="column" fxFlex="" fxFill="" fxLayoutAlign="center center">
+            <span class="small-text">{{ 'DECISION-TREES.LIST.EMPTY-RECORDS-INFO' | translate }}</span>
         </div> 
     </div>
 </div>

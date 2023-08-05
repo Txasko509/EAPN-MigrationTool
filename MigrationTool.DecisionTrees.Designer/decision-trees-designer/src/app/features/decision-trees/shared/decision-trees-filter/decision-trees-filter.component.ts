@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, fromEvent, tap } from 'rxjs';
 import { DateGreaterOrEqualThan } from 'src/shared/validators/date-greather-or-equal.validator';
 
@@ -23,7 +23,7 @@ export class DecisionTreesFilterComponent implements OnInit, AfterViewInit {
     this.filterForm = this.fb.group({
       from: new FormControl('', []),
       to: new FormControl('', []),
-      searchText: new FormControl('', []),
+      searchText: new FormControl('', [Validators.maxLength(100)]),
     }, {
       // Used custom form validator name
       validator: DateGreaterOrEqualThan("to", "from")

@@ -27,7 +27,7 @@ export class DecisionTreeListComponent implements OnInit {
   columns!: Column[];
   sort!: SortParams;
 
-  constructor(private dialog: MatDialog, private decisionTreeService: DecisionTreeService, private spinnerService: SpinnerService,
+  constructor(private dialog: MatDialog, private decisionTreeService: DecisionTreeService, public spinnerService: SpinnerService,
     private appToasterService: AppToasterService, public translate: TranslateService, @Inject(LOCAL_STORAGE) private storage: WebStorageService) {
     this.filterFormGroup = new FormGroup({});
 
@@ -60,8 +60,8 @@ export class DecisionTreeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.loadDecisionTrees();
-    this.onCreateDecisionTreeClick();
+    this.loadDecisionTrees();
+    //this.onCreateDecisionTreeClick();
   }
 
   onChangeFilter(): void {
@@ -186,4 +186,6 @@ export class DecisionTreeListComponent implements OnInit {
         this.spinnerService.display(false);
       }, (error: any) => console.error(error));
   }
+
+
 }

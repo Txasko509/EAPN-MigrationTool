@@ -60,7 +60,8 @@
                             <input formControlName="text" matInput
                                 placeholder="{{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate }}" required>
                             <mat-error *ngIf="questionItemForm.get('text')?.hasError('required')">
-                                {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-REQUIRED' | translate }}
+                                <span [innerHtml]="'DECISION-TREES.DESIGNER.ERROR-TEXT-REQUIRED' | translate ">
+                                </span>
                             </mat-error>
                             <mat-error *ngIf="questionItemForm.get('text')?.hasError('maxlength')">
                                 {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-MAX-LENGTH' | translate }}

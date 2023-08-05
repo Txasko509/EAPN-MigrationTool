@@ -32,7 +32,7 @@
       "LABEL-EMAIL": "Correo electrónico",
       "PLACE-HOLDER-EMAIL": "Introduzca el correo electrónico",
       "ERROR-EMAIL-REQUIRED": "Correo electrónico <strong>es obligatorio</strong>",
-      "ERROR-EMAIL-MAX-LENGTH": "El campo Correo electrónico no puede contener más de 100 caracteres",
+      "ERROR-EMAIL-MAX-LENGTH": "El campo Correo electrónico no puede contener más de 50 caracteres",
       "LABEL-PASSWORD": "Contraseña",
       "PLACE-HOLDER-PASSWORD": "Introduzca la contraseña",
       "ERROR-PASSWORD-REQUIRED": "Contraseña <strong>es obligatorio</strong>",
@@ -60,7 +60,8 @@
       "DIALOG-TITLE-REMOVE": "Eliminar árbol de decisión",
       "DIALOG-DESC-REMOVE": "¿Está seguro de eliminar el árbol de decisión?",
       "TEXT-DECISION-TREE-REMOVE-SUCCESS": "El árbol de decisión se ha eliminado correctamente",
-      "TEXT-DECISION-TREE-REMOVE-ERROR": "No se ha podido eliminar el árbol de decisión"      
+      "TEXT-DECISION-TREE-REMOVE-ERROR": "No se ha podido eliminar el árbol de decisión",      
+      "EMPTY-RECORDS-INFO": "No se han encontrado registros"    
     },
     "CREATE": {
       "LABEL-TITLE-1": "Crear ",
@@ -70,7 +71,7 @@
       "LABEL-DECISION-TREE-PREVIEWER-TITLE": "Previsualizador",
       "LABEL-DECISION-TREE-PREVIEWER-SUBTITLE": "Previsualización del diseño",
       "LABEL-NAME": "Nombre",
-      "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
+      "ERROR-NAME-REQUIRED": "El campo Nombre <strong>es obligatorio</strong>",
       "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 150 caracteres",
       "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",      
       "BTN-CANCEL": "Cancelar",
@@ -84,7 +85,7 @@
       "LABEL-DECISION-TREE-PREVIEWER-TITLE": "Previsualizador",
       "LABEL-DECISION-TREE-PREVIEWER-SUBTITLE": "Previsualización del diseño",
       "LABEL-NAME": "Nombre",
-      "ERROR-NAME-REQUIRED": "El campo Nombre es obligatorio",
+      "ERROR-NAME-REQUIRED": "El campo Nombre <strong>es obligatorio</strong>",
       "ERROR-NAME-MAX-LENGTH": "El campo Nombre no puede contener más de 150 caracteres",
       "TEXT-TOOLTIP-BTN-ADD-ITEM": "Añadir item",    
       "LABEL-ID-REF": "ID.Ref",  
@@ -101,7 +102,7 @@
       "LABEL-ANSWER": "Respuesta",
       "TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE": "Seleccione el tipo de Item",
       "LABEL-TEXT": "Texto",
-      "ERROR-TEXT-REQUIRED": "El campo Texto es obligatorio",
+      "ERROR-TEXT-REQUIRED": "El campo Texto <strong>es obligatorio</strong>",
       "ERROR-TEXT-MAX-LENGTH": "El campo Texto no puede contener más de 150 caracteres",
       "LABEL-SUBTEXT": "SubTexto",
       "ERROR-SUBTEXT-MAX-LENGTH": "El campo Texto no puede contener más de 150 caracteres",
@@ -135,7 +136,8 @@
         "ERROR-FROM-DATE-VALID": "La Fecha desde no es válida",
         "ERROR-TO-DATE-VALID": "La Fecha hasta no es válida",
         "LABEL-FILTER": "Filtro",
-        "TEXT-PLACEHOLDER-FILTER": "Introduzca texto para comenzar la búsqueda"
+        "TEXT-PLACEHOLDER-FILTER": "Introduzca texto para comenzar la búsqueda",
+        "ERROR-SEARCH-TEXT-MAX-LENGTH": "El campo Filtro no puede contener más de 100 caracteres"
       }
     } 
   },
