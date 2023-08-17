@@ -18,7 +18,7 @@
             <mat-label>{{ 'DECISION-TREES.DESIGNER.LABEL-GOTO-ITEM' | translate }}
             </mat-label>
             <mat-select formControlName="gotoItem">
-                <mat-option *ngFor="let itemToGo of itemsToGo;let indexOfelement=index;" [value]="itemToGo">
+                <mat-option *ngFor="let itemToGo of itemsToGo;let indexOfelement=index;" [value]="itemToGo.order">
                     {{itemToGo.order + 1}}
                 </mat-option>
             </mat-select>

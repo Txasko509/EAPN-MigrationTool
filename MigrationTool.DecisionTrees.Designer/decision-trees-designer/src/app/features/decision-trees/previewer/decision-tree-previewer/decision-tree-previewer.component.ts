@@ -7,6 +7,7 @@ import { Question } from 'src/core/interfaces/question';
 import { ItemsChangeNotificationService } from 'src/core/services/items-change-notification.service';
 import { Choice } from 'src/core/interfaces/choice';
 import { TooltipPosition, TooltipTheme } from 'src/shared/components/tooltip/tooltip.enums';
+import { CurrentItemChangeNotificationService } from 'src/core/services/current-item-change-notification.service';
 
 export interface Node {
   id: string;
@@ -15,6 +16,7 @@ export interface Node {
   text: string;
   father?: string;
   choices?: any;
+  itemOrder?: number;
 };
 
 export interface Level {
@@ -30,6 +32,8 @@ export interface Level {
 export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
   @Input() items: Item[];
 
+  currentItem!: Item;
+
   itemType = ItemType;
 
   levels: Level[];
@@ -38,7 +42,9 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
   tooltipTheme = TooltipTheme;
   tooltipPosition = TooltipPosition;
   
-  constructor(private itemsChangeNotificationService: ItemsChangeNotificationService, private renderer: Renderer2) {
+  constructor(private itemsChangeNotificationService: ItemsChangeNotificationService, 
+    private currentItemChangeNotificationService: CurrentItemChangeNotificationService, 
+    private renderer: Renderer2, private host: ElementRef) {
     this.items = [];
     this.levels = [];
     this.lines = [];
@@ -48,17 +54,39 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
     this.itemsChangeNotificationService.itemsChanged$.subscribe(
       data => {
         this.items = data;
+       
         this.levels = [];
         this.removeAllLines();
-
+    
         this.mapListItems(this.items, this.levels);
-
+    
         var self = this;
         setTimeout(() => {
           self.drawDecisionTree();
           self.drawLines();
         }, 1000); 
       });
+
+    this.currentItemChangeNotificationService.currentItemChanged$.subscribe(
+        data => {
+          if(data !== null){
+            this.currentItem = data;
+          }
+        });
+
+    const observer = new ResizeObserver(entries => {
+        const width = entries[0].contentRect.width;
+
+        if(width < 600){
+          
+        }
+
+        this.removeAllLines();
+        this.drawDecisionTree();
+        this.drawLines();
+      });
+
+    observer.observe(this.host.nativeElement);
   }
 
   ngOnDestroy(): void{
@@ -81,7 +109,8 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
           order: 0,
           type: ItemType.Question,
           text: firstItem?.text ?? "",
-          choices: firstItem?.choices
+          choices: firstItem?.choices,
+          itemOrder: firstItem?.order
         }]
       });
 
@@ -107,7 +136,8 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
                     type: choice.gotoItem.$type,
                     text: choice.gotoItem?.text ?? "",
                     father: qNode.id,
-                    choices: (choice.gotoItem.$type === ItemType.Question ? (<Question>choice.gotoItem).choices : undefined)
+                    choices: (choice.gotoItem.$type === ItemType.Question ? (<Question>choice.gotoItem).choices : undefined),
+                    itemOrder:  choice.gotoItem?.order
                   });
               }
             });

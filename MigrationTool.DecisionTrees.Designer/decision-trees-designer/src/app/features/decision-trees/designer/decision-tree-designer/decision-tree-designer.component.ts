@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Type } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Item } from 'src/core/interfaces/item';
 import { ItemType } from 'src/core/interfaces/item-type';
@@ -9,6 +9,10 @@ import { Question } from 'src/core/interfaces/question';
 import { ItemsChangeNotificationService } from 'src/core/services/items-change-notification.service';
 import { Answer } from 'src/core/interfaces/answer';
 import { Choice } from 'src/core/interfaces/choice';
+import { TranslateService } from '@ngx-translate/core';
+import { SpinnerService } from 'src/core/services/spinner.service';
+import { CurrentItemChangeNotificationService } from 'src/core/services/current-item-change-notification.service';
+import { distinctUntilChanged } from 'rxjs';
 
 
 @Component({
@@ -27,7 +31,9 @@ export class DecisionTreeDesignerComponent implements OnInit{
 
   itemType = ItemType;
 
-  constructor(private fb: FormBuilder, private dialog: MatDialog, private itemsChangeNotificationService: ItemsChangeNotificationService) {
+  constructor(private fb: FormBuilder, private dialog: MatDialog, private itemsChangeNotificationService: ItemsChangeNotificationService,
+    private currentItemChangeNotificationService: CurrentItemChangeNotificationService, private translate: TranslateService, 
+    public spinnerService: SpinnerService) {
     this.items = [];  
   }
    
@@ -56,7 +62,7 @@ export class DecisionTreeDesignerComponent implements OnInit{
       text: new FormControl({value: '', disabled: true}, [Validators.required, Validators.maxLength(2000)]),
       subText: new FormControl('', [Validators.maxLength(150)]),
       textLink: new FormControl('', [Validators.maxLength(200)]),
-      info: new FormControl('', [Validators.maxLength(150)])
+      info: new FormControl({value: '', disabled: true}, [Validators.maxLength(150)])
     });
 
     this.answerItemForm.valueChanges.subscribe(item => {
@@ -66,6 +72,19 @@ export class DecisionTreeDesignerComponent implements OnInit{
       selectedItem.subText = item.subText;
       selectedItem.textLink = item.textLink;
       selectedItem.info = item.info;
+    });
+
+    this.answerItemForm.controls['textLink'].valueChanges.pipe(distinctUntilChanged()).subscribe(value => {
+      if(value.length > 0){
+        this.answerItemForm.controls['info'].enable();
+      }
+      else{
+        this.answerItemForm.controls['info'].disable();
+
+        this.answerItemForm.patchValue({
+          info: ''
+        });
+      }
     });
 
     if(this.items.length > 0){
@@ -93,13 +112,15 @@ export class DecisionTreeDesignerComponent implements OnInit{
     });
 
     this.questionItemForm.patchValue({
-      text: "",
+      text: this.translate.instant('DECISION-TREES.DESIGNER.TEXT-DEFAULT-NODE'),
       subText: ""
     });
 
     if(this.items.length === 0 || this.items.length === 1){
       this.itemsChangeNotificationService.notifyChanges(this.items);
-    }    
+    }   
+    
+    this.currentItemChangeNotificationService.notifyChanges(question);
   }
 
   onRemoveItemClick() {
@@ -129,6 +150,8 @@ export class DecisionTreeDesignerComponent implements OnInit{
 
   onSelectedItemClick(item: Item) {
    this.setSelectedItem(item);
+
+   this.currentItemChangeNotificationService.notifyChanges(item);
   }
 
   onSelectedItemTypeClick(type: ItemType) {
@@ -143,6 +166,7 @@ export class DecisionTreeDesignerComponent implements OnInit{
       selectedItem.choices = [];
     }
     else if(type === ItemType.Answer){
+      selectedItem.text = this.translate.instant('DECISION-TREES.DESIGNER.TEXT-DEFAULT-NODE');
       selectedItem.textLink = null;
       selectedItem.info = null;
     }
@@ -159,10 +183,18 @@ export class DecisionTreeDesignerComponent implements OnInit{
   }
 
   onTextEditorClick() {
+    this.spinnerService.display(true);
+
     const dialogRef = this.dialog.open(TextEditorComponent, {
       data: {text: this.itemsToggleForm.get("selectedItem")?.value?.text},
       maxWidth: '98vw',
       width: '750px'
+    });
+
+    dialogRef.afterOpened().subscribe(open => {
+      setTimeout (() => {
+        this.spinnerService.display(false);
+      }, 1000);      
     });
 
     dialogRef.afterClosed().subscribe(content => {
@@ -203,6 +235,8 @@ export class DecisionTreeDesignerComponent implements OnInit{
   }
 
   get IsSelectedItemValid(){
+    if(this.items.length === 0) return true;
+
     var selectedItem = this.itemsToggleForm.get("selectedItem")?.value;
 
     if(selectedItem == ''){

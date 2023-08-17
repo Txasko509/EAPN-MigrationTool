@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Choice } from 'src/core/interfaces/choice';
 import { Item } from 'src/core/interfaces/item';
+import * as Enumerable from "linq-es2015";
 
 @Component({
   selector: 'app-choice',
@@ -22,7 +23,7 @@ export class ChoiceComponent  implements OnInit{
   ngOnInit(): void {  
     this.choiceForm = this.fb.group({
       text: new FormControl(this.choice?.text, [Validators.required, Validators.maxLength(150)]),
-      gotoItem: new FormControl(this.choice?.gotoItem)
+      gotoItem: new FormControl(this.choice?.gotoItem?.order)
     });
 
     this.choiceForm.get("text")?.valueChanges.subscribe(selectedValue => {
@@ -30,9 +31,11 @@ export class ChoiceComponent  implements OnInit{
     });
 
     this.choiceForm.get("gotoItem")?.valueChanges.subscribe(selectedValue => {
-      this.choice.gotoItem = selectedValue;
+      var item = Enumerable.asEnumerable<Item>(this.itemsToGo).Where(i => i.order === selectedValue).FirstOrDefault();
+      
+      this.choice.gotoItem = item;
 
-      this.gotoItemSelected.emit(selectedValue);
+      this.gotoItemSelected.emit(item.order);
     });
   }
 

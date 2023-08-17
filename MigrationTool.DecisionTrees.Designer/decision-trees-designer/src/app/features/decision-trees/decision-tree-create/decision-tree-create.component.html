@@ -4,9 +4,9 @@
     <span class="dialog-title-enfasis"> {{ 'DECISION-TREES.CREATE.LABEL-TITLE-2' | translate }}</span>
 </div>
 <mat-dialog-content>
-    <div fxLayout="column" fxLayout.gt-md="row" fxFlex="" fxFill="" fxLayoutGap="10px">
-        <mat-drawer-container class="sidenav-container" fxFlex="" hasBackdrop="false" autosize="true" style="height: 750px">
-            <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
+    <div fxLayout="row" fxFlex="" fxFill="">
+        <mat-drawer-container class="sidenav-container" fxFlex="" hasBackdrop="false" autosize="false" style="height: 650px;">
+            <mat-drawer #drawer class="example-sidenav" mode="side" opened="true" fxFlex="" id="drawer-elem">
                 <!-- Designer -->
                 <mat-card>
                     <mat-card-header>
@@ -42,15 +42,15 @@
                     </mat-card-content>
                 </mat-card>
             </mat-drawer>
-            <div fxLayout="column" fxFlex="" fxLayoutGap="10px">
-                <!-- Previewer -->
+            <div fxLayout="column" fxFlex="" fxFill="" #previewer>
+                <!--  Previewer  -->
                 <mat-card fxFlex="" fxFill="">
                     <mat-card-header>
                         <button (click)="drawer.toggle()" mat-icon-button>
                             <mat-icon>{{drawer.opened ? 'arrow_back_ios' :
                                 'arrow_forward_ios'}}</mat-icon>
                         </button>
-                        <!-- This fills the remaining space of the current row -->
+                        <!--  This fills the remaining space of the current row -->
                         <span class="fill-remaining-space"></span>
 
                         <mat-icon color="primary" mat-card-avatar>preview</mat-icon>

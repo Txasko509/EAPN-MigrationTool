@@ -1,8 +1,8 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill="" fxLayoutGap="20px">
     <mat-toolbar color="accent">
         <button mat-icon-button class="example-icon" (click)="onAddItemClick()" [disabled]="!IsSelectedItemValid"
-            aria-label="Example icon-button with share icon">
-            <mat-icon matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-ADD-ITEM' | translate }}">
+            aria-label="Example icon-button with share icon" matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-ADD-ITEM' | translate }}">
+            <mat-icon>
                 post_add</mat-icon>
         </button>
         <!-- This fills the remaining space of the current row -->
@@ -27,8 +27,8 @@
             <!-- This fills the remaining space of the current row -->
             <span class="fill-remaining-space"></span>
             <button *ngIf="itemsToggleForm.get('selectedItem')?.value.order === (items.length - 1)" mat-icon-button class="example-icon" (click)="onRemoveItemClick()"
-                aria-label="Example icon-button with share icon">
-                <mat-icon matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-REMOVE-ITEM' | translate }}">
+                aria-label="Example icon-button with share icon" matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-REMOVE-ITEM' | translate }}">
+                <mat-icon>
                     playlist_remove</mat-icon>
             </button>
         </mat-toolbar>
@@ -36,16 +36,18 @@
             <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill=""
                 *ngIf="itemsToggleForm.get('selectedItem')?.value">
                 <form [formGroup]="itemTypeToogleForm" fxFlex="" fxFill="">
-                    <mat-button-toggle-group fxFlex="" class="l-design" formControlName="selectedItemType" fxHide.xs=""
+                    <mat-button-toggle-group [disabled]="SelectedItem?.id" xFlex="" class="l-design" formControlName="selectedItemType" fxHide.xs=""
                         fxHide.sm="">
                         <mat-button-toggle fxFlex="" class="select-type" (click)="onSelectedItemTypeClick(itemType.Question)"
-                            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE' | translate }}"
+                            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE-QUESTION' | translate }}"
                             [value]="itemType.Question" aria-label="Text align left">
-                            {{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION' | translate }}
+                            <mat-icon>quiz</mat-icon>
+                            {{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION' | translate }}                           
                         </mat-button-toggle>
                         <mat-button-toggle fxFlex="" class="select-type" (click)="onSelectedItemTypeClick(itemType.Answer)"
-                            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE' | translate }}"
+                            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE-ANSWER' | translate }}"
                             [value]="itemType.Answer" aria-label="Text align left">
+                            <mat-icon>task</mat-icon>
                             {{ 'DECISION-TREES.DESIGNER.LABEL-ANSWER' | translate }}
                         </mat-button-toggle>
                     </mat-button-toggle-group>
@@ -93,7 +95,7 @@
                                     }}</mat-label>
                                 <input #text formControlName="text" matInput
                                     placeholder="{{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate }}" required>
-                                <div id="answerText" contenteditable="true" [innerHtml]="SelectedItem.text"></div>
+                                <div id="answerText" [innerHtml]="SelectedItem.text"></div>
                                 <!-- Edit with text editor -->
                                 <button
                                     matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-TEXT-EDITOR' | translate }}"

@@ -5,7 +5,7 @@
             }}</mat-card-title>
         <mat-card-subtitle>{{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION-CHOICES-SUBTITLE' | translate
             }}</mat-card-subtitle>
-        <button [disabled]="question.choices && question.choices.length >= 4" (click)="onAddChoiceClick()" color="primary" matSuffix mat-icon-button aria-label="Clear"
+        <button [disabled]="question.choices && question.choices.length >= 5" (click)="onAddChoiceClick()" color="primary" matSuffix mat-icon-button aria-label="Clear"
             matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-CREATE-CHOICE' | translate }}">
             <mat-icon>add</mat-icon>
         </button>

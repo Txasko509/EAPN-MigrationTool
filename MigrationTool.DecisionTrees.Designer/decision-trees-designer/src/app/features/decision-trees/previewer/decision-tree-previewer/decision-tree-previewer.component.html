@@ -1,7 +1,8 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill="" fxLayoutGap="20px">
     <div class="level" *ngFor="let level of levels" fxLayout="row" fxLayoutAlign="center center" fxFlex="" fxFill="">
         <span [id]="node.id" *ngFor="let node of level.nodes" class="item" [ngSwitch]="node.type" [tooltip]="''"
-            [tooltipTemplate]="popoverContent" [theme]="tooltipTheme.CUSTOM" [position]="tooltipPosition.DYNAMIC">
+            [tooltipTemplate]="popoverContent" [theme]="tooltipTheme.CUSTOM" [position]="tooltipPosition.DYNAMIC"
+            [ngClass]="currentItem !== undefined && currentItem.order === node.itemOrder ? 'animate-flicker' : ''">
             <mat-icon *ngSwitchCase="itemType.Question">
                 quiz</mat-icon>
             <mat-icon *ngSwitchCase="itemType.Answer">
