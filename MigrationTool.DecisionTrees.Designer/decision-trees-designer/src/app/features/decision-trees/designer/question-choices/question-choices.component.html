@@ -12,7 +12,7 @@
     </mat-card-header>
     <mat-card-content>
         <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill="" fxLayoutGap="10px">
-            <app-choice (remove)="onRemoveChoiceClick($event)" (gotoItemSelected)="onGotoItemSelected($event)" *ngFor="let choice of question.choices" fxFlex="" fxFill=""
+            <app-choice (remove)="onRemoveChoiceClick($event)" (gotoItemSelected)="onGotoItemSelected($event)" *ngFor="let choice of question.choices | orderBy: 'order'" fxFlex="" fxFill=""
                 [choice]="choice" [itemsToGo]="ItemsForChoices"></app-choice>
         </div>
     </mat-card-content>

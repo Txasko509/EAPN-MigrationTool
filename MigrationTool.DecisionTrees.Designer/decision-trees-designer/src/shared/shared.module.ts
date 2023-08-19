@@ -13,7 +13,7 @@ import { MyCustomPaginatorIntl, SharedStaticTableComponent } from './components/
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { SharedTableComponent } from './components/shared-table/shared-table.component';
 import { UtcToLocalTimePipe } from '../core/pipes/utc-to-local-time.pipe';
-import { TooltipModule } from './components/tooltip/tooltip.module';
+import { OrderByPipe } from 'src/core/pipes/order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { TooltipModule } from './components/tooltip/tooltip.module';
     InfoDialogComponent,
     SharedTableComponent,
     SharedStaticTableComponent,
-    UtcToLocalTimePipe
+    UtcToLocalTimePipe,
+    OrderByPipe
   ],
   imports: [
     CommonModule,
@@ -44,7 +45,8 @@ import { TooltipModule } from './components/tooltip/tooltip.module';
     ReactiveFormsModule,
     SharedTableComponent,
     SharedStaticTableComponent,
-    UtcToLocalTimePipe
+    UtcToLocalTimePipe,
+    OrderByPipe
   ],
   providers: [
     {provide: MatPaginatorIntl, useClass: MyCustomPaginatorIntl}

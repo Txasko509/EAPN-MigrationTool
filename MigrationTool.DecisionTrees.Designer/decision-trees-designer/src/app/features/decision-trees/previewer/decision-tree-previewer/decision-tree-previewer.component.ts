@@ -75,15 +75,12 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
         });
 
     const observer = new ResizeObserver(entries => {
-        const width = entries[0].contentRect.width;
-
-        if(width < 600){
-          
-        }
-
-        this.removeAllLines();
-        this.drawDecisionTree();
-        this.drawLines();
+        var self = this;
+        setTimeout(() => {
+          self.removeAllLines();
+          self.drawDecisionTree();
+          self.drawLines();
+        }, 0);      
       });
 
     observer.observe(this.host.nativeElement);
