@@ -3,7 +3,7 @@
 ?>
 
 <!-- our app will be injected here -->
-<div id="decision-tree"></div>
+<div id="decision-tree-<?php echo $id ?>"></div>
     
 <!-- Inicializar pantalla -->
 <script type="text/javascript">

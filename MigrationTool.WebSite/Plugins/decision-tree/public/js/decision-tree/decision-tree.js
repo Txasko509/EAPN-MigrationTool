@@ -31,27 +31,34 @@
 $.extend( {
 
 		decision_tree_api: {
+                       init: function(id){
+                           var decision_tree_html="<div id=\"page-content-decision-tree-" + id + "\"></div>";
+
+                            // inject to 'app' in index.html
+                            $("#decision-tree-" + id).append(decision_tree_html);    
+                       },
+                       
                        get_rest_api: function(){
                            return DecisionTreeRESTAPI;
                        },
                                               
-                       set_content: function(content){
+                       set_content: function(content, id){
                             // change page content
-                            $("#page-content-decision-tree").html(content);
+                            $("#page-content-decision-tree-" + id).html(content);
                        },
                        
-                       append_content: function(content){
+                       append_content: function(content, id){
                             // change page content
-                            $("#page-content-decision-tree").append(content);
+                            $("#page-content-decision-tree-" + id).append(content);
                        }
 		}
 	} );
 
 	$(document).ready( function() {
                 // app html
-                var decision_tree_html="<div id=\"page-content-decision-tree\"></div>";
-
-                // inject to 'app' in index.html
-                $("#decision-tree").append(decision_tree_html);      
+//                var decision_tree_html="<div id=\"page-content-decision-tree\"></div>";
+//
+//                // inject to 'app' in index.html
+//                $("#decision-tree").append(decision_tree_html);      
 	});
 })( jQuery );

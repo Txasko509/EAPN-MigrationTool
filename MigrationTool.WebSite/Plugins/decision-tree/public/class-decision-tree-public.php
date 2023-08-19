@@ -71,11 +71,10 @@ class Decision_Tree_Public {
          * class.
          */
          // Shared
-        //wp_enqueue_style( $this->decision_tree .'-bootstrap-3.3.7', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', array(), $this->version, 'all' );
         wp_enqueue_style( $this->decision_tree .'-bootstrap-5.3', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css', array(), $this->version, 'all' );
-        wp_enqueue_style( $this->decision_tree . '-decision-tree', plugin_dir_url( __FILE__ ) . 'css/decision-tree.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->decision_tree . '-preloader', plugin_dir_url( __FILE__ ) . 'css/preloader.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->decision_tree . '-decision-tree', plugin_dir_url( __FILE__ ) . 'css/decision-tree.css', array(), $this->version, 'all' );       
     }
-
     /**
      * Register the JavaScript for the public-facing side of the site.
      *
@@ -95,10 +94,10 @@ class Decision_Tree_Public {
          */
 
         // Shared 
-        wp_enqueue_script( $this->decision_tree . 'jquery-3.2.1-js', 'https://code.jquery.com/jquery-3.2.1.min.js');
-        //wp_enqueue_script( $this->decision_tree . 'bootstrap-3.3.7-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');    
+        wp_enqueue_script( $this->decision_tree . 'jquery-3.2.1-js', 'https://code.jquery.com/jquery-3.7.0.min.js');
         wp_enqueue_script( $this->decision_tree . 'bootstrap-5.3-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js');   
         wp_enqueue_script( $this->decision_tree . '-linq-js', plugin_dir_url( __FILE__ ) . 'js/shared/components/linq.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->decision_tree . '-preloader-js', plugin_dir_url( __FILE__ ) . 'js/shared/components/jquery.preloader.min.js', array( 'jquery' ), $this->version, false );
                 
         wp_enqueue_script( $this->decision_tree . '-decision-tree', plugin_dir_url( __FILE__ ) . 'js/decision-tree/decision-tree.js', array( 'jquery' ), $this->version, false ); 
         wp_enqueue_script( $this->decision_tree . '-read-decision_tree', plugin_dir_url( __FILE__ ) . 'js/decision-tree/read-decision-tree.js', array( 'jquery' ), $this->version, false );  
@@ -107,7 +106,7 @@ class Decision_Tree_Public {
     public function decision_tree_shortcode($atts, $content) {
         ob_start();
         
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/decision-tree/index.php';  
+        require plugin_dir_path( dirname( __FILE__ ) ) . 'public/partials/decision-tree/index.php';  
         
         return ob_get_clean();  
     }

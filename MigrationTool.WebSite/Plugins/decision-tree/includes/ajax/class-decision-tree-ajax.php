@@ -58,7 +58,7 @@ class Decision_Tree_Ajax {
         $this->version = $version;
 
         $this->endpoints = array(
-            'get_decision_tree' => "decision-tree/%s"
+            'get_decision_tree' => "decision-trees/%s"
         );
 
         $this->prefix = "api";
