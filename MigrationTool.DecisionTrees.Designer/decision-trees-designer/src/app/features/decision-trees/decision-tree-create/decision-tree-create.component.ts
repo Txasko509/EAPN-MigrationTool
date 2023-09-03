@@ -67,4 +67,8 @@ export class DecisionTreeCreateComponent implements OnInit{
         }, error => console.error(error));
     }
   }
+
+  onNodeSelected(order: number): void {
+    this.designer.setSelectedItemByOrder(order);
+  }
 }

@@ -1,7 +1,8 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill="" fxLayoutGap="20px">
     <mat-toolbar color="accent">
         <button mat-icon-button class="example-icon" (click)="onAddItemClick()" [disabled]="!IsSelectedItemValid"
-            aria-label="Example icon-button with share icon" matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-ADD-ITEM' | translate }}">
+            aria-label="Example icon-button with share icon"
+            matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-ADD-ITEM' | translate }}">
             <mat-icon>
                 post_add</mat-icon>
         </button>
@@ -26,8 +27,9 @@
             </section>
             <!-- This fills the remaining space of the current row -->
             <span class="fill-remaining-space"></span>
-            <button *ngIf="itemsToggleForm.get('selectedItem')?.value.order === (items.length - 1)" mat-icon-button class="example-icon" (click)="onRemoveItemClick()"
-                aria-label="Example icon-button with share icon" matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-REMOVE-ITEM' | translate }}">
+            <button *ngIf="itemsToggleForm.get('selectedItem')?.value.order === (items.length - 1)" mat-icon-button
+                class="example-icon" (click)="onRemoveItemClick()" aria-label="Example icon-button with share icon"
+                matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-REMOVE-ITEM' | translate }}">
                 <mat-icon>
                     playlist_remove</mat-icon>
             </button>
@@ -36,15 +38,17 @@
             <div fxLayout="column" fxLayoutAlign="center center" fxFlex="" fxFill=""
                 *ngIf="itemsToggleForm.get('selectedItem')?.value">
                 <form [formGroup]="itemTypeToogleForm" fxFlex="" fxFill="">
-                    <mat-button-toggle-group [disabled]="SelectedItem?.id" xFlex="" class="l-design" formControlName="selectedItemType" fxHide.xs=""
-                        fxHide.sm="">
-                        <mat-button-toggle fxFlex="" class="select-type" (click)="onSelectedItemTypeClick(itemType.Question)"
+                    <mat-button-toggle-group [disabled]="SelectedItem?.id ?? false" fxFlex="" class="l-design"
+                        formControlName="selectedItemType" fxHide.xs="" fxHide.sm="">
+                        <mat-button-toggle fxFlex="" class="select-type"
+                            (click)="onSelectedItemTypeClick(itemType.Question)"
                             matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE-QUESTION' | translate }}"
                             [value]="itemType.Question" aria-label="Text align left">
                             <mat-icon>quiz</mat-icon>
-                            {{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION' | translate }}                           
+                            {{ 'DECISION-TREES.DESIGNER.LABEL-QUESTION' | translate }}
                         </mat-button-toggle>
-                        <mat-button-toggle fxFlex="" class="select-type" (click)="onSelectedItemTypeClick(itemType.Answer)"
+                        <mat-button-toggle fxFlex="" class="select-type"
+                            (click)="onSelectedItemTypeClick(itemType.Answer)"
                             matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-SELECTED-ITEM-TYPE-ANSWER' | translate }}"
                             [value]="itemType.Answer" aria-label="Text align left">
                             <mat-icon>task</mat-icon>
@@ -59,7 +63,7 @@
                         <mat-form-field fxFlex="" fxFill="">
                             <mat-label> {{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate
                                 }}</mat-label>
-                            <input formControlName="text" matInput
+                            <input id="textQuestion" formControlName="text" matInput autofocus
                                 placeholder="{{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate }}" required>
                             <mat-error *ngIf="questionItemForm.get('text')?.hasError('required')">
                                 <span [innerHtml]="'DECISION-TREES.DESIGNER.ERROR-TEXT-REQUIRED' | translate ">
@@ -80,8 +84,7 @@
                             </mat-error>
                         </mat-form-field>
                         <!-- Choices -->
-                        <app-question-choices [question]="SelectedItem"
-                            [itemsFromTree]="items"></app-question-choices>
+                        <app-question-choices [question]="SelectedItem" [itemsFromTree]="items"></app-question-choices>
                     </div>
                 </form>
                 <!-- Answer form -->
@@ -92,17 +95,17 @@
                             <!-- Text -->
                             <mat-form-field fxFlex="" fxFill="">
                                 <mat-label> {{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate
-                                    }}</mat-label>
-                                <input #text formControlName="text" matInput
+                                    }} <!-- Edit with text editor -->
+                                    <button
+                                        matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-TEXT-EDITOR' | translate }}"
+                                        type="button" matSuffix mat-icon-button aria-label="Text editor"
+                                        (click)="onTextEditorClick()" style="color: black">
+                                        <mat-icon>present_to_all</mat-icon>
+                                    </button></mat-label>
+                                <input #text formControlName="text" matInput id="textAnswer"
                                     placeholder="{{ 'DECISION-TREES.DESIGNER.LABEL-TEXT' | translate }}" required>
                                 <div id="answerText" [innerHtml]="SelectedItem.text"></div>
-                                <!-- Edit with text editor -->
-                                <button
-                                    matTooltip="{{ 'DECISION-TREES.DESIGNER.TEXT-TOOLTIP-BTN-TEXT-EDITOR' | translate }}"
-                                    type="button" matSuffix mat-icon-button aria-label="Text editor"
-                                    (click)="onTextEditorClick()">
-                                    <mat-icon>present_to_all</mat-icon>
-                                </button>
+
                                 <mat-error *ngIf="answerItemForm.get('text')?.hasError('required')">
                                     {{ 'DECISION-TREES.DESIGNER.ERROR-TEXT-REQUIRED' | translate }}
                                 </mat-error>

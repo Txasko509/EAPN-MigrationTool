@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2 } from '@angular/core';
 import { Item } from 'src/core/interfaces/item';
 import * as Enumerable from "linq-es2015";
 import { ItemType } from 'src/core/interfaces/item-type';
@@ -31,6 +31,7 @@ export interface Level {
 })
 export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
   @Input() items: Item[];
+  @Output() nodeSelected = new EventEmitter<number>();
 
   currentItem!: Item;
 
@@ -92,6 +93,10 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
 
     // Reset observer
     this.itemsChangeNotificationService.reset();
+  }
+
+  onNodeClick(order?: number){
+    this.nodeSelected.emit(order);
   }
   
   private mapListItems(items: Item[], levels: Level[]): any {
@@ -177,14 +182,16 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
         var childWidth = fatherContainerWidth / childs.length;
 
         // Child position
-        var childPosition = (childWidth * (node.order + 1)) - (childWidth / 2) + (fatherContainerWidth * fatherNode.order ?? 0);
+        var orderNode = (node.order > childs.length) ? childs.length - 1 : node.order;
+        var fatherIndex = fatherLevel.nodes.findIndex(f => f.id === father.id);
+        var childPosition = (father.offsetLeft - (fatherContainerWidth / 2)) + (childWidth * (orderNode + 1)) - (childWidth / 2);
 
         // Set position in element
         var child = new ElementRef(document.getElementById(node.id));        
        
         if (child.nativeElement !== undefined && child.nativeElement !== null) {
           this.renderer.setStyle(child.nativeElement, "position", 'absolute');
-          this.renderer.setStyle(child.nativeElement, "left", childPosition + "px");
+          this.renderer.setStyle(child.nativeElement, "left", (childPosition >= 0 ? childPosition : 0) + "px");
         }
       }
     });
@@ -209,7 +216,7 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
         // Draw line with father
         var choice = Enumerable.asEnumerable<Choice>(fatherNode?.choices).Where(c => c.order === node.order).FirstOrDefault();
         let line = new LeaderLine(father, child, 
-          { color: '#4e6688', size: 2, dropShadow: true, middleLabel: LeaderLine.captionLabel(choice !== undefined ? choice.text : '')},);
+          { color: '#4e6688', size: 2, dropShadow: true, middleLabel: LeaderLine.captionLabel(choice !== undefined ? this.truncateText(choice.text) : '')},);
         this.lines.push(line);
       }
     });
@@ -221,5 +228,15 @@ export class DecisionTreePreviewerComponent implements OnInit, OnDestroy  {
     });
 
     this.lines = [];
+  }
+
+  private truncateText(text?: string){
+    if(!text) return; 
+
+    if(text.length > 25){
+      return text.substring(0, 25) + "...   ";
+    }
+    
+    return text;
   }
 }

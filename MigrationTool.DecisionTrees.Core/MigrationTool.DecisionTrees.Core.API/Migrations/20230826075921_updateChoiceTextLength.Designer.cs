@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MigrationTool.DecisionTrees.Core.Repositories.Context;
 
@@ -10,9 +11,11 @@ using MigrationTool.DecisionTrees.Core.Repositories.Context;
 namespace MigrationTool.DecisionTrees.Core.API.Migrations
 {
     [DbContext(typeof(AdminDbContext))]
-    partial class AdminDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230826075921_updateChoiceTextLength")]
+    partial class updateChoiceTextLength
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,7 +116,7 @@ namespace MigrationTool.DecisionTrees.Core.API.Migrations
                         .HasColumnName("Info");
 
                     b.Property<string>("TextLink")
-                        .HasColumnType("nvarchar(300)")
+                        .HasColumnType("nvarchar(200)")
                         .HasColumnName("TextLink");
 
                     b.ToTable("Answer", (string)null);

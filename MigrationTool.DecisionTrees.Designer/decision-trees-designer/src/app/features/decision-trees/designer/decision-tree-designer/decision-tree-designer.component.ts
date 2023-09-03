@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Item } from 'src/core/interfaces/item';
 import { ItemType } from 'src/core/interfaces/item-type';
@@ -33,7 +33,7 @@ export class DecisionTreeDesignerComponent implements OnInit{
 
   constructor(private fb: FormBuilder, private dialog: MatDialog, private itemsChangeNotificationService: ItemsChangeNotificationService,
     private currentItemChangeNotificationService: CurrentItemChangeNotificationService, private translate: TranslateService, 
-    public spinnerService: SpinnerService) {
+    public spinnerService: SpinnerService, private renderer: Renderer2, private host: ElementRef) {
     this.items = [];  
   }
    
@@ -48,7 +48,7 @@ export class DecisionTreeDesignerComponent implements OnInit{
 
     this.questionItemForm = this.fb.group({
       text: new FormControl('', [Validators.required, Validators.maxLength(150)]),
-      subText: new FormControl('', [Validators.maxLength(150)])
+      subText: new FormControl('', [Validators.maxLength(500)])
     });
 
     this.questionItemForm.valueChanges.subscribe(item => {
@@ -60,8 +60,8 @@ export class DecisionTreeDesignerComponent implements OnInit{
 
     this.answerItemForm = this.fb.group({
       text: new FormControl({value: '', disabled: true}, [Validators.required, Validators.maxLength(2000)]),
-      subText: new FormControl('', [Validators.maxLength(150)]),
-      textLink: new FormControl('', [Validators.maxLength(200)]),
+      subText: new FormControl('', [Validators.maxLength(500)]),
+      textLink: new FormControl('', [Validators.maxLength(300)]),
       info: new FormControl({value: '', disabled: true}, [Validators.maxLength(150)])
     });
 
@@ -88,7 +88,9 @@ export class DecisionTreeDesignerComponent implements OnInit{
     });
 
     if(this.items.length > 0){
-      this.setSelectedItem(this.items[0]);
+      setTimeout (() => {
+        this.onSelectedItemClick(this.items[0]);
+      }, 1000);         
     }
   }
 
@@ -121,6 +123,10 @@ export class DecisionTreeDesignerComponent implements OnInit{
     }   
     
     this.currentItemChangeNotificationService.notifyChanges(question);
+
+    setTimeout (() => {
+      this.setFocus("textQuestion");
+    }, 10);    
   }
 
   onRemoveItemClick() {
@@ -188,8 +194,11 @@ export class DecisionTreeDesignerComponent implements OnInit{
     const dialogRef = this.dialog.open(TextEditorComponent, {
       data: {text: this.itemsToggleForm.get("selectedItem")?.value?.text},
       maxWidth: '98vw',
-      width: '750px'
+      width: '1250px'
     });
+
+    // Fix z-index problem
+    this.removeClass("svg", "leader-line");
 
     dialogRef.afterOpened().subscribe(open => {
       setTimeout (() => {
@@ -198,6 +207,8 @@ export class DecisionTreeDesignerComponent implements OnInit{
     });
 
     dialogRef.afterClosed().subscribe(content => {
+      this.addClass("svg", "leader-line");
+
       if (content === undefined || content === null) return;
 
       var selectedItem = this.itemsToggleForm.get("selectedItem")?.value;
@@ -224,9 +235,19 @@ export class DecisionTreeDesignerComponent implements OnInit{
       this.answerItemForm.patchValue({
        // text: item.text,
         subText: item.subText,
-        textLink: (<Answer>item)?.textLink,
-        info: (<Answer>item)?.info
+        textLink: (<Answer>item)?.textLink ?? null,
+        info: (<Answer>item)?.info ?? null
       });
+    }
+  }
+
+  setSelectedItemByOrder(order: number){
+    var item = Enumerable.asEnumerable<Item>(this.items).Where(i => i.order === order).FirstOrDefault();
+
+    if(item !== undefined){
+      this.setSelectedItem(item);
+
+      this.currentItemChangeNotificationService.notifyChanges(item);
     }
   }
 
@@ -264,5 +285,30 @@ export class DecisionTreeDesignerComponent implements OnInit{
     }
     
     return true;
+  }
+
+  private setFocus(id: string){
+    var input = new ElementRef(<HTMLInputElement>document.getElementById(id));    
+
+    input.nativeElement.focus();
+    input.nativeElement.select();
+  }
+
+  private removeClass(element: string, className: string){
+    var lines = Array.from(<any>document.getElementsByTagName(element));
+
+    lines.forEach((line: any) => {
+      var lineRef = new ElementRef(line);      
+      this.renderer.removeClass(lineRef.nativeElement, className);  
+    });
+  }
+
+  private addClass(element: string, className: string){
+    var lines = Array.from(<any>document.getElementsByTagName(element));
+
+    lines.forEach((line: any) => {
+      var lineRef = new ElementRef(line);      
+      this.renderer.addClass(lineRef.nativeElement, className);  
+    });
   }
 }

@@ -22,7 +22,7 @@ export class ChoiceComponent  implements OnInit{
    
   ngOnInit(): void {  
     this.choiceForm = this.fb.group({
-      text: new FormControl(this.choice?.text, [Validators.required, Validators.maxLength(150)]),
+      text: new FormControl(this.choice?.text, [Validators.required, Validators.maxLength(225)]),
       gotoItem: new FormControl(this.choice?.gotoItem?.order)
     });
 

@@ -18,7 +18,7 @@ export const authConfig = new InjectionToken<AuthConfig>('Auth Configuration', {
       tokenEndpoint : /*inject(AppConfigService).issuer*/ "http://localhost:10000" + "/connect/token-by-password",
       userinfoEndpoint : /*inject(AppConfigService).issuer*/ "http://localhost:10000" + "/connect/userinfo",
       requireHttps : /*inject(AppConfigService).requireHttps,*/ false,
-      useSilentRefresh: true,
+      useSilentRefresh: false,
       silentRefreshRedirectUri: window.location.origin,
     }
   }

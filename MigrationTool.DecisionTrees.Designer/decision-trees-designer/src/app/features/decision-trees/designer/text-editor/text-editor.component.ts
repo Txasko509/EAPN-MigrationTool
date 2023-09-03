@@ -47,19 +47,15 @@ export class TextEditorComponent implements OnInit{
 
   configureTinyMce() {
     this.tinyMceConfig = {
-      icons: 'material',
-      skin: 'borderless',
-      plugins: 'wordcount paste list link code',
+      plugins: ["wordcount", "link", "code"],
       menubar: false,
-      language: 'es',
+      language: "es",
       min_height: 300,
       paste_block_drop: true,
       extended_valid_elements: '*[*]',
-      automatic_uploads: true,      
+      automatic_uploads: true,     
       toolbar:
-        'undo redo | formatselect | bold italic backcolor | \
-      alignleft aligncenter alignright alignjustify | \
-      bullist numlist outdent indent | removeformat | image code'
+        "bullist undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | image code"
     };
   }
 }

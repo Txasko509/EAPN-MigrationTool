@@ -15,7 +15,7 @@ namespace MigrationTool.DecisionTrees.Core.Repositories.Model
         public int Order { get; set; }
 
         [Required]
-        [Column("Text", TypeName = "nvarchar(150)")]
+        [Column("Text", TypeName = "nvarchar(225)")]
         public string? Text { get; set; }
 
         [Column("GotoItemId")]

@@ -80,4 +80,8 @@ export class DecisionTreeEditComponent implements OnInit{
         }, error => console.error(error));
     }
   }
+
+  onNodeSelected(order: number): void {
+    this.designer.setSelectedItemByOrder(order);
+  }
 }

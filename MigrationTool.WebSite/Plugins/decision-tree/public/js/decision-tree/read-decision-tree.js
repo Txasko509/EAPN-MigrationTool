@@ -124,7 +124,8 @@
         question_html += "<div class=\"container text-center\">"
                     + "<div class=\"row\">";
 
-        $.each(question.choices, function(index, choice) {                
+        //$.each(question.choices, function(index, choice) { 
+        $.each(question.choices.sort(function(a, b) {return a.order > b.order;}), function(index, choice) {                       
             question_html += 
                     "<div class=\"d-grid gap-2 col\">" + 
                         "<button type=\"button\" class=\"btn btn-primary btn-lg question-choice\" \n\
